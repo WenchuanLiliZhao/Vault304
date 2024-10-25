@@ -1,3 +1,5 @@
+type Date = [number, number, number]
+
 interface Author {
   data: Page,
   role?: string,
@@ -5,28 +7,26 @@ interface Author {
 
 interface Book {
   coverPage: Page,
-  toc: {[key: string]: Page}
+  toc: object,
 }
 
 interface Page {
   info: {
     title: string;
-    key: string;
-    brief: string;
-    latest_update: [number, number, number];
+    path: string;
+    summary: string;
+    latest_update: Date;
     cover: string;
-    type: string;
     authors: Author[];
 
     label: string;
     tags: string[];
 
     theme?: { [key: string]: string };
-
-    inbook?: Book;
+    sidebar?: JSX.Element;
   };
 
-  content: (string | JSX.Element)[];
+  content: (string | JSX.Element)[] | JSX.Element;
 }
 
 export type { Author, Book, Page }

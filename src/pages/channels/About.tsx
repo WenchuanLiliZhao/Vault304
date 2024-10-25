@@ -1,9 +1,17 @@
 // About.tsx
 
-const About = {
+import { Page } from "../../Interfaces"
+
+const About: Page = {
   info: {
     title: "About",
     path: "about",
+    summary: "",
+    latest_update: [2024, 9, 28],
+    cover: "",
+    authors: [],
+    label: "",
+    tags: []
   },
 
   content: (<>

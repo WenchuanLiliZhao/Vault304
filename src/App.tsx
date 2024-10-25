@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChannelHome from "./pages/channels/Home";
-import Channels from "./pages/channels/_Channels";
+import Toc_Channels from "./pages/channels/_Toc";
+// import Toc_HowToBuildReact from "./pages/books/HowToBuildReact/_BookToc";
+import { MapPagesRoute } from "./components/Functions";
+import Toc_HowToBuildReact from "./pages/books/HowToBuildReact/_Toc";
+
+
 
 function App() {
   return (
@@ -8,17 +13,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={ChannelHome.content} />
-          {Object.values(Channels).map((channel, i: number) => (
-            <Route
-              key={`${channel}${i}`}
-              path={`/${channel.info.path}`}
-              element={channel.content}
-            />
-          ))}
+
+          {MapPagesRoute(Toc_Channels, "channels")}
+
+          {MapPagesRoute(Toc_HowToBuildReact, "book")}
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
