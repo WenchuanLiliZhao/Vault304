@@ -1,3 +1,9 @@
-export const test1 = "test 1"
+function Test() {
+  return (
+    <>
+      <h1></h1>
+    </>
+  );
+}
 
-export const test2 = "test 2"
+export default Test;
