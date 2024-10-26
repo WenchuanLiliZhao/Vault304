@@ -1,6 +1,6 @@
 // About.tsx
 
-import { Page } from "../../Interfaces"
+import { Page } from "../../../ObjectShapes"
 
 const About: Page = {
   info: {
@@ -8,7 +8,10 @@ const About: Page = {
     path: "about",
     summary: "",
     latest_update: [2024, 9, 28],
-    cover: "",
+    cover: {
+      url: "",
+      caption: undefined
+    },
     authors: [],
     label: "",
     tags: []

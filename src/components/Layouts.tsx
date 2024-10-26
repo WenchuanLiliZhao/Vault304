@@ -1,28 +1,52 @@
 // const PageBody: React.FC<Props> = ({ children }) =>
 
 import React from "react";
-import { Page } from "../Interfaces";
+import { Book, Page } from "../ObjectShapes";
+import styles from "./Layouts.module.scss";
 import { MapBookToc } from "./Functions";
 
-interface Props {
+interface PropsArticle {
   page: Page;
-  toc: { [key: string]: Page };
-  loadToc: boolean;
+  book: Book;
 }
 
-const Layout_Article: React.FC<Props> = ({ toc, page, loadToc }) => {
+const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
   return (
     <>
-      <aside>{loadToc ? <>{MapBookToc(toc)}</> : ""}</aside>
+      {book.status == "published" ? (
+        <aside>
+          <MapBookToc book={book} />
+        </aside>
+      ) : (
+        ""
+      )}
       <article>{page.content}</article>
     </>
   );
 };
 
-const Layout_Channel: React.FC<Props> = ({ page }) => {
+interface PropsBookCover {
+  book: Book
+}
+
+const Layout_BookCover: React.FC<PropsBookCover> = ({book}) => {
   return (
-    <div>{page.content}</div>
+    <>
+      {book.status == "published" ? (
+        <>
+          {book.cover.info.title}
+        </>
+      ) : ""}
+    </>
   )
+}
+
+interface PropsChannel {
+  page: Page;
+}
+
+const Layout_Channel: React.FC<PropsChannel> = ({ page }) => {
+  return <div className={`${styles.channelContent}`}>{page.content}</div>;
 };
 
-export { Layout_Channel, Layout_Article };
+export { Layout_Channel, Layout_Article, Layout_BookCover };

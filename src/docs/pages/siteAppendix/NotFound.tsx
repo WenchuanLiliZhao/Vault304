@@ -1,6 +1,6 @@
 // NotFound.tsx
 
-import { Page } from "../../Interfaces"
+import { Page } from "../../../ObjectShapes"
 
 const NotFound: Page = {
   info: {
@@ -8,7 +8,10 @@ const NotFound: Page = {
     path: "*",
     summary: "",
     latest_update: [2024, 9, 28],
-    cover: "",
+    cover: {
+      url: "",
+      caption: undefined
+    },
     authors: [],
     label: "",
     tags: []
