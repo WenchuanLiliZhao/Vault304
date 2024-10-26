@@ -18,7 +18,7 @@ const LoremIpsum: Page = {
       },
 
       {
-        data: Authors.Author_LuShu,
+        data: Authors.Contributors_LuShu,
         role: "illustrator",
       },
     ],
