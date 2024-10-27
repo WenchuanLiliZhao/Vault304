@@ -1,4 +1,3 @@
-
 interface DateFormatterProps {
   date: [number, number, number];
 }

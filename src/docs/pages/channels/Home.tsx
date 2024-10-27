@@ -1,4 +1,5 @@
 import { MapBookToc } from "../../../components/Functions"
+// import { ScrollableCalendar } from "../../../components/InLineElements/Calendar"
 import { Page } from "../../../ObjectShapes"
 import Books from "../../books/_Books"
 
@@ -23,6 +24,8 @@ const Home: Page = {
     <MapBookToc book={Books.Book_TheBookOfLoremIpsum} />
 
     <MapBookToc book={Books.Book_SetTheory} />
+
+    {/* <ScrollableCalendar /> */}
   </>)
 }
 

@@ -1,3 +1,4 @@
+import "./components/AppStyles/_app.scss"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Authors from "./docs/contributors/_Contributors";
 import SiteAppendix from "./docs/pages/siteAppendix/_Toc";

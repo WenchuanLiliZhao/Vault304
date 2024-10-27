@@ -1,4 +1,4 @@
-import { Img } from "../../../components/InlineElements";
+import { Img } from "../../../components/InLineElements/Img";
 import { Page } from "../../../ObjectShapes";
 import Authors from "../../contributors/_Contributors";
 
