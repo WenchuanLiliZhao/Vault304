@@ -23,7 +23,7 @@ type BookParams<T extends Record<string, Page>> = CorrectedBook & {
 };
 
 // 创建一个生成 Book 对象的函数
-function CreateBook<T extends Record<string, Page>>({
+export function CreateBook<T extends Record<string, Page>>({
   cover,
   status,
   toc,
@@ -53,7 +53,7 @@ interface MapBookTocProps {
   book: Book;
 }
 
-const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
+export const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
   return (
     <ul>
       {Object.values(book.toc).map((item: Page, i: number) => (
@@ -65,4 +65,4 @@ const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
   );
 };
 
-export { CreateBook, MapBookToc };
+

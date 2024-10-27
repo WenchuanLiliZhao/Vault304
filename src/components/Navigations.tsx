@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink, NavLinkProps } from "react-router-dom";
 import { Page } from "../ObjectShapes";
+import { DateFormatter, GetTodayDateArray } from "./Date";
+import Channels from "../docs/pages/channels/_Toc";
 
 // ============================
 // 首先，我需要在这里处理一下 NavLink 的页面滚动问题
@@ -36,14 +38,14 @@ const NavLink2Top: React.FC<NavLink2TopProps> = ({
 // 从这个文件开始创建 components
 // ============================
 interface Props {
-  itemArray: Page[];
+  items: {[key: string]: Page};
 }
 
 // 此处用来 map Nav 上的 items
-const Nav_List: React.FC<Props> = ({ itemArray }) => {
+const Nav_List: React.FC<Props> = () => {
   return (
     <ul>
-      {itemArray.map((page: Page, i: number) => (
+      {Object.values(Channels).map((page: Page, i: number) => (
         <li key={`${page}${i}`}>
           <NavLink2Top to={`/${page.info.path}`}>{page.info.title}</NavLink2Top>
         </li>
@@ -52,11 +54,12 @@ const Nav_List: React.FC<Props> = ({ itemArray }) => {
   );
 };
 
-const Nav_Top: React.FC<Props> = ({ itemArray }) => {
+const Nav_Top: React.FC<Props> = ({ items }) => {
   return (
-    <>
-      <Nav_List itemArray={itemArray} />
-    </>
+    <nav>
+      <DateFormatter date={GetTodayDateArray()} />
+      <Nav_List items={items} />
+    </nav>
   );
 };
 

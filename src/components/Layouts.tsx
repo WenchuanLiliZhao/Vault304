@@ -4,6 +4,20 @@ import React from "react";
 import { Book, Page } from "../ObjectShapes";
 import styles from "./Layouts.module.scss";
 import { MapBookToc } from "./Functions";
+import { Nav_Top } from "./Navigations";
+import Channels from "../docs/pages/channels/_Toc";
+
+
+interface PropsChannel {
+  page: Page;
+}
+
+const Layout_Channel: React.FC<PropsChannel> = ({ page }) => {
+  return (<>
+    <Nav_Top items={Channels} />
+    <div className={`${styles.channelContent}`}>{page.content}</div>
+  </>);
+};
 
 interface PropsArticle {
   page: Page;
@@ -40,13 +54,5 @@ const Layout_BookCover: React.FC<PropsBookCover> = ({book}) => {
     </>
   )
 }
-
-interface PropsChannel {
-  page: Page;
-}
-
-const Layout_Channel: React.FC<PropsChannel> = ({ page }) => {
-  return <div className={`${styles.channelContent}`}>{page.content}</div>;
-};
 
 export { Layout_Channel, Layout_Article, Layout_BookCover };
