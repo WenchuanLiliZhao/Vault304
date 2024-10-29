@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { Page } from "../ObjectShapes";
+import { Channel } from "../ObjectShapes";
 import { DateFormatter, GetTodayDateArray } from "./Date";
 import Channels from "../docs/pages/channels/_Toc";
 
@@ -34,18 +34,23 @@ const NavLink2Top: React.FC<NavLink2TopProps> = ({
   );
 };
 
+
+
 // ============================
 // 从这个文件开始创建 components
 // ============================
+// i want to set a const
+
+// such that
 interface Props {
-  items: {[key: string]: Page};
+  items: {[key: string]: Channel};
 }
 
 // 此处用来 map Nav 上的 items
 const Nav_List: React.FC<Props> = () => {
   return (
     <ul>
-      {Object.values(Channels).map((page: Page, i: number) => (
+      {Object.values(Channels).map((page: Channel, i: number) => (
         <li key={`${page}${i}`}>
           <NavLink2Top to={`/${page.info.path}`}>{page.info.title}</NavLink2Top>
         </li>

@@ -7,6 +7,7 @@ const book: Book = {
     info: {
       title: "Notes for Set Theory",
       path: "Notes for Set Theory",
+      pageType: "post",
       summary: "",
       latest_update: [1, 1, 1],
       cover: {
@@ -21,7 +22,7 @@ const book: Book = {
     },
     content: (<>sss</>)
   },
-  status: "published",
+  status: "",
   toc: {
     NaturalNumbers
   }

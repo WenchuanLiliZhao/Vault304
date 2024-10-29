@@ -1,21 +1,13 @@
 // Home.tsx
-import { Page } from "../../../ObjectShapes"
+import { Channel } from "../../../ObjectShapes"
 
 
 
-const Design: Page = {
+const Design: Channel = {
   info: {
     title: "Design",
     path: "Design",
-    summary: "",
-    latest_update: [2024, 9, 28],
-    cover: {
-      url: "",
-      caption: undefined
-    },
-    authors: [],
-    label: "",
-    tags: []
+    pageType: "channel"
   },
 
   content: (<>

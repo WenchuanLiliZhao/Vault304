@@ -1,9 +1,10 @@
-import { Page } from "../../ObjectShapes";
+import { Post } from "../../ObjectShapes";
 
-const Contributors_LuShu: Page = {
+const Contributors_LuShu: Post = {
   info: {
     title: "",
     path: "",
+    pageType: "post",
     summary: "",
     latest_update: [2024, 9, 28],
     cover: {

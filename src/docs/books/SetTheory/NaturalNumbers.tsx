@@ -1,4 +1,4 @@
-import { Page } from "../../../ObjectShapes";
+import { Post } from "../../../ObjectShapes";
 
 const content = [
   `
@@ -10,10 +10,11 @@ bbbb $x$
 `,
 ];
 
-const NaturalNumbers: Page = {
+const NaturalNumbers: Post = {
   info: {
     title: "The Set Theoretic Definition of Natural Numbers",
     path: "The Set Theoretic Definition of Natural Numbers",
+    pageType: "post",
     summary: "",
     latest_update: [2024, 9, 28],
     cover: {

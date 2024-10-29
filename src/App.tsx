@@ -1,13 +1,11 @@
 import "./components/AppStyles/_app.scss"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Authors from "./docs/contributors/_Contributors";
-import SiteAppendix from "./docs/pages/siteAppendix/_Toc";
 import Channels from "./docs/pages/channels/_Toc";
 import Books from "./docs/books/_Books";
 import React from "react";
 import { Layout_Article, Layout_Channel } from "./components/Layouts";
 import Home from "./docs/pages/channels/Home";
-import { Page } from "./ObjectShapes";
+import { Channel } from "./ObjectShapes";
 
 function App() {
   return (
@@ -16,23 +14,7 @@ function App() {
         <Routes>
           <Route index element={<Layout_Channel page={Home} />} />
 
-          {Object.values(Channels).map((item: Page, i: number) => (
-            <Route
-              key={`${item}${i}`}
-              path={`/${item.info.path}`}
-              element={<Layout_Channel page={item} />}
-            />
-          ))}
-
-          {Object.values(SiteAppendix).map((item: Page, i: number) => (
-            <Route
-              key={`${item}${i}`}
-              path={`/${item.info.path}`}
-              element={<Layout_Channel page={item} />}
-            />
-          ))}
-
-          {Object.values(Authors).map((item: Page, i: number) => (
+          {Object.values(Channels).map((item: Channel, i: number) => (
             <Route
               key={`${item}${i}`}
               path={`/${item.info.path}`}

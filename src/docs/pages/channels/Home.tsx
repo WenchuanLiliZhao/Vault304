@@ -1,21 +1,13 @@
 import { MapBookToc } from "../../../components/Functions"
 // import { ScrollableCalendar } from "../../../components/InLineElements/Calendar"
-import { Page } from "../../../ObjectShapes"
+import { Channel } from "../../../ObjectShapes"
 import Books from "../../books/_Books"
 
-const Home: Page = {
+const Home: Channel = {
   info: {
     title: "Home",
     path: "",
-    summary: "",
-    latest_update: [2024, 9, 28],
-    cover: {
-      url: "",
-      caption: undefined
-    },
-    authors: [],
-    label: "",
-    tags: []
+    pageType: "channel"
   },
 
   content: (<>

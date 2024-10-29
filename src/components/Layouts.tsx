@@ -1,7 +1,7 @@
 // const PageBody: React.FC<Props> = ({ children }) =>
 
 import React from "react";
-import { Book, Page } from "../ObjectShapes";
+import { Book, Channel, Post } from "../ObjectShapes";
 import styles from "./Layouts.module.scss";
 import { MapBookToc } from "./Functions";
 import { Nav_Top } from "./Navigations";
@@ -9,7 +9,7 @@ import Channels from "../docs/pages/channels/_Toc";
 
 
 interface PropsChannel {
-  page: Page;
+  page: Channel;
 }
 
 const Layout_Channel: React.FC<PropsChannel> = ({ page }) => {
@@ -20,11 +20,12 @@ const Layout_Channel: React.FC<PropsChannel> = ({ page }) => {
 };
 
 interface PropsArticle {
-  page: Page;
+  page: Post;
   book: Book;
 }
 
 const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
+  console.log(page)
   return (
     <>
       {book.status == "published" ? (

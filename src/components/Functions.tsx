@@ -1,4 +1,4 @@
-import { Book, Page } from "../ObjectShapes";
+import { Book, Post } from "../ObjectShapes";
 import { NavLink2Top } from "./Navigations";
 
 // ========================
@@ -14,34 +14,40 @@ type CorrectedBook = {
 
 // 实现 BookA 和 BookParams，使其关联到 CorrectedBook
 
-type BookA<T extends Record<string, Page>> = CorrectedBook & {
+type BookA<T extends Record<string, Post>> = CorrectedBook & {
   toc: T;
 };
 
-type BookParams<T extends Record<string, Page>> = CorrectedBook & {
+type BookParams<T extends Record<string, Post>> = CorrectedBook & {
   toc: T;
 };
 
 // 创建一个生成 Book 对象的函数
-export function CreateBook<T extends Record<string, Page>>({
+export function CreateBook<T extends Record<string, Post>>({
   cover,
   status,
   toc,
 }: BookParams<T>): BookA<T> {
-  
   // Extract all dates from pages
-  const dates: [number, number, number][] = Object.values(toc).map(page => page.info.latest_update);
+  const dates: [number, number, number][] = Object.values(toc).map(
+    (page) => page.info.latest_update
+  );
 
   // Find the most recent date
   const mostRecentDate = dates.reduce((latest, current) => {
     const latestDate = new Date(latest[0], latest[1] - 1, latest[2]);
     const currentDate = new Date(current[0], current[1] - 1, current[2]);
-    
+
     return currentDate > latestDate ? current : latest;
   });
 
   // Update cover's latest_update with the most recent date
   cover.info.latest_update = mostRecentDate;
+
+  // 这个地方，所有的 path 会被重新整理
+  Object.values(toc).forEach((page) => {
+    page.info.path = `${cover.info.path}/${page.info.path}`;
+  });
 
   return { cover, status, toc };
 }
@@ -56,9 +62,27 @@ interface MapBookTocProps {
 export const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
   return (
     <ul>
-      {Object.values(book.toc).map((item: Page, i: number) => (
+      {Object.values(book.toc).map((item: Post, i: number) => (
         <li key={`${item}${i}`}>
-          <NavLink2Top to={`/${item.info.path}`}>{item.info.title}</NavLink2Top>
+          {item.info.pageType == "post" ? (
+            <>
+              <NavLink2Top to={`/${item.info.path}`}>
+                {item.info.title}
+              </NavLink2Top>
+            </>
+          ) : (
+            ""
+          )}
+
+          {item.info.pageType == "tocDiv" ? (
+            <>
+              <div>
+                {item.info.title}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
         </li>
       ))}
     </ul>
@@ -66,3 +90,29 @@ export const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
 };
 
 
+interface TocDivProps {
+  title: string | "---";
+}
+
+// Regular TypeScript function
+export function CreateTocDiv({ title }: TocDivProps): Post {
+  const output: Post = {
+    info: {
+      pageType: "tocDiv",
+      title: title,
+      path: "",
+      summary: "",
+      latest_update: [0,0,0],
+      cover: {
+        url: "",
+        caption: undefined
+      },
+      authors: [],
+      label: "",
+      tags: []
+    },
+    content: <></>
+  } as const;
+
+  return output;
+}

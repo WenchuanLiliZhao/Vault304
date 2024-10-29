@@ -1,11 +1,12 @@
 import { Img } from "../../../components/InLineElements/Img";
-import { Page } from "../../../ObjectShapes";
+import { Post } from "../../../ObjectShapes";
 import Authors from "../../contributors/_Contributors";
 
-const LoremIpsum: Page = {
+const LoremIpsum: Post = {
   info: {
     title: "Lorem Ipsum!",
     path: "Lorem Ipsum",
+    pageType: "post",
     summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     latest_update: [2024, 10, 25],
     cover: {
