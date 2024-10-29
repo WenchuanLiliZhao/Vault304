@@ -1,4 +1,4 @@
-import { CreateBook } from "../../../components/Functions";
+import { CreateBook } from "../../../components/BookHandling";
 import { Book } from "../../../ObjectShapes";
 import NaturalNumbers from "./NaturalNumbers";
 
@@ -7,7 +7,7 @@ const book: Book = {
     info: {
       title: "Notes for Set Theory",
       path: "Notes for Set Theory",
-      pageType: "post",
+      pageType: "book cover",
       summary: "",
       latest_update: [1, 1, 1],
       cover: {

@@ -6,8 +6,8 @@ export const AuthorRoles = [
   "programmer",
 ] as const;
 
-
 type AuthorRole = (typeof AuthorRoles)[number];
+
 
 interface PageInfo {
   title: string;
@@ -20,10 +20,8 @@ export interface Page {
   content: JSX.Element | string | (JSX.Element | string)[];
 }
 
-
-
 interface ChannelInfo extends PageInfo {
-  pageType: "channel"
+  pageType: "channel";
 }
 
 export interface Channel extends Page {
@@ -58,10 +56,17 @@ export interface Post {
   content: (string | JSX.Element)[] | JSX.Element;
 }
 
+
+interface BookCoverInfo extends Omit<PostInfo, 'pageType'> {
+  pageType: "book cover";
+}
+
+interface BookCover extends Omit<Post, 'info'> {
+  info: BookCoverInfo;
+}
+
 export interface Book {
-  cover: Post;
+  cover: BookCover;
   status: "" | "published";
   toc: { [key: string]: Post }
 };
-
-export type PageTypes = Channel | Page | Post | Book

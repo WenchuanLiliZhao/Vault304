@@ -89,7 +89,9 @@ export const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
   );
 };
 
-
+// ========================
+// 在书的目录中插入 chapter name
+// ========================
 interface TocDivProps {
   title: string | "---";
 }

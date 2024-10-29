@@ -1,5 +1,4 @@
-import { MapBookToc } from "../../../components/Functions"
-// import { ScrollableCalendar } from "../../../components/InLineElements/Calendar"
+import { MapBookToc } from "../../../components/BookHandling"
 import { Channel } from "../../../ObjectShapes"
 import Books from "../../books/_Books"
 
@@ -16,8 +15,6 @@ const Home: Channel = {
     <MapBookToc book={Books.Book_TheBookOfLoremIpsum} />
 
     <MapBookToc book={Books.Book_SetTheory} />
-
-    {/* <ScrollableCalendar /> */}
   </>)
 }
 

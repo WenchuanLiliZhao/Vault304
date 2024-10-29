@@ -3,10 +3,9 @@
 import React from "react";
 import { Book, Channel, Post } from "../ObjectShapes";
 import styles from "./Layouts.module.scss";
-import { MapBookToc } from "./Functions";
+import { MapBookToc } from "./BookHandling";
 import { Nav_Top } from "./Navigations";
 import Channels from "../docs/pages/channels/_Toc";
-
 
 interface PropsChannel {
   page: Channel;
