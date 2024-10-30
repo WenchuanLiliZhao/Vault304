@@ -1,0 +1,7 @@
+.book-page-list {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  > :nth-child(3n) {
+    grid-column: span 2;
+  }
+}

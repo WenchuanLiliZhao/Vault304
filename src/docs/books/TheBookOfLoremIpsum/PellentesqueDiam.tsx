@@ -23,7 +23,7 @@ const PellentesqueDiam: Post = {
         role: "illustrator",
       },
     ],
-    label: "",
+    label: "Undefined",
     tags: ["UI/UX design", "Loren Ipsum"],
     theme: undefined,
   },

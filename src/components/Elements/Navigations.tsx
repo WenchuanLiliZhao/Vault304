@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink, NavLinkProps } from "react-router-dom";
 import { Channel } from "../../ObjectShapes";
-import { FormatDate, GetTodayDateArray } from "../Functions/Date";
+import { DateFormatter, GetTodayDateArray } from "../Functions/Date";
 import Channels from "../../docs/pages/channels/_Toc";
 import React from "react";
 
@@ -41,9 +41,9 @@ const NavLink2Top: React.FC<NavLink2TopProps> = ({
 // ============================
 
 const [year, month, day] = [
-  FormatDate(GetTodayDateArray())[0],
-  FormatDate(GetTodayDateArray())[1],
-  FormatDate(GetTodayDateArray())[2],
+  DateFormatter(GetTodayDateArray())[0],
+  DateFormatter(GetTodayDateArray())[1],
+  DateFormatter(GetTodayDateArray())[2],
 ];
 
 const Nav_Top: React.FC = () => {

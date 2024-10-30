@@ -1,6 +1,4 @@
-
-
-export const FormatDate = (date: [number, number, number]): [string, string, string] => {
+export const DateFormatter = (date: [number, number, number]): [string, string, string] => {
   const [year, month, day] = date;
   const dateObj = new Date(year, month - 1, day);
   const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "short", day: "2-digit" };

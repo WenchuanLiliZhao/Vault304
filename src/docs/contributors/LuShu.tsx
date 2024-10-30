@@ -2,7 +2,7 @@ import { Post } from "../../ObjectShapes";
 
 const Contributors_LuShu: Post = {
   info: {
-    title: "",
+    title: "LU Shu",
     path: "",
     pageType: "post",
     summary: "",

@@ -31,7 +31,7 @@ export interface Channel extends Page {
   headline?: JSX.Element;
 }
 
-interface Author {
+export interface Author {
   data: Post;
   role: AuthorRole;
 }

@@ -23,8 +23,13 @@ const LoremIpsum: Post = {
         data: Authors.Contributors_LuShu,
         role: "illustrator",
       },
+
+      {
+        data: Authors.Contributors_LuShu,
+        role: "illustrator",
+      },
     ],
-    label: "",
+    label: "Undefined",
     tags: ["UI/UX design", "Loren Ipsum"],
     theme: undefined,
   },
