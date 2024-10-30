@@ -1,13 +1,11 @@
 import { Post } from "../../ObjectShapes";
 
 // Function to retrieve and sort Posts by latest_update
-type PostMap = { [key: string]: Post };
+type PostMap = Post[];
 
 export function sortPostByUpdateDate(channels: PostMap): Post[] {
-  // Filter the object to include only posts with pageType "post"
-  const postList = Object.values(channels).filter(
-    (post) => post.info.pageType === "post"
-  );
+  // Filter the array to include only posts with pageType "post"
+  const postList = channels.filter((post) => post.info.pageType === "post");
 
   // Sort the posts by latest_update, considering it as a tuple [year, month, day]
   postList.sort((a, b) => {

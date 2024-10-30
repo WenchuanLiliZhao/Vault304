@@ -2,7 +2,7 @@ import { BookCard_Headline } from "../../../components/Elements/Cards/Cards";
 import { PostCardList } from "../../../components/Elements/Cards/CardLists";
 import { Channel } from "../../../ObjectShapes";
 import { SiteInfo } from "../../../SiteInfo";
-import { BookPages } from "../../books/_Books";
+import { BookPagesArray } from "../../books/_Books";
 import Book_LoremIpsum from "../../books/TheBookOfLoremIpsum/_Index";
 
 const Home: Channel = {
@@ -18,7 +18,7 @@ const Home: Channel = {
   content: (
     <>
       <PostCardList
-        array={BookPages}
+        array={BookPagesArray}
         sortby={"date"}
         preloadCount={10}
         loadCount={10}

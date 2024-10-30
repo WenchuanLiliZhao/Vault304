@@ -32,7 +32,7 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
   let post;
 
   if (show === "latest") {
-    post = sortPostByUpdateDate(book.toc)[0];
+    post = sortPostByUpdateDate(Object.values(book.toc))[0];
   } else {
     post = show;
   }

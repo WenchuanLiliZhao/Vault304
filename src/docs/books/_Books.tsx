@@ -7,12 +7,11 @@ const Books = {
   Book_SetTheory,
 }
 
-const mapBooksToTOC = (books: Record<string, { toc: Record<string, Post> }>): Record<string, Post> => {
-  return Object.values(books).reduce((acc, book) => {
-    return { ...acc, ...book.toc };
-  }, {});
+const BookTocToArray = (books: Record<string, { toc: Record<string, Post> }>): Post[] => {
+  return Object.values(books).flatMap(book => Object.values(book.toc));
 };
 
-const BookPages = mapBooksToTOC(Books);
+// Usage
+const BookPagesArray = BookTocToArray(Books);
 
-export {Books, BookPages}
+export {Books, BookPagesArray}

@@ -6,7 +6,7 @@ import { DateFormatter } from "../../Functions/Date";
 import { MDBlock } from "../../Functions/Markdown";
 
 interface BookPageListProps {
-  array: { [key: string]: Post };
+  array: Post[];
   sortby?: "date";
   preloadCount: number;
   loadCount: number;
