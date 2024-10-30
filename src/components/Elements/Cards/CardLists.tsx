@@ -1,7 +1,7 @@
 import styles from "./CardLists.module.scss";
 import React, { useState } from "react";
-import { Post } from "../../ObjectShapes";
-import { sortPostByUpdateDate } from "../Functions/PostSetHandling";
+import { Post } from "../../../ObjectShapes";
+import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
 
 interface BookPageListProps {
   array: { [key: string]: Post };

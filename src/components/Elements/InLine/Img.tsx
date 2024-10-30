@@ -1,3 +1,4 @@
+import styles from "./Img.module.scss"
 import React, { useState, useEffect } from 'react';
 
 interface ImgProps {
@@ -27,27 +28,14 @@ export const Img: React.FC<ImgProps> = ({ src, alt, className }) => {
 
   return (
     <div
-      className={className}
-      style={{
-        position: 'relative',
-        width: '100%',
-        paddingBottom, // 通过该属性维持占位符的高度
-        overflow: 'hidden',
-        backgroundColor: '#f0f0f0',
-      }}
+      className={`${className} ${styles["img-container"]}`}
+      style={{paddingBottom}}
     >
       {loaded && (
         <img
+          className={styles["img"]}
           src={src}
           alt={alt}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
         />
       )}
     </div>

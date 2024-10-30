@@ -1,13 +1,14 @@
-import styles from "./BookCards.module.scss";
-import { Book, Post } from "../../ObjectShapes";
-import { sortPostByUpdateDate } from "../Functions/PostSetHandling";
+import styles from "./Cards.module.scss";
+import { Book, Post } from "../../../ObjectShapes";
+import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
+import { MDBlock } from "../../Functions/Markdown";
 
 interface PropsCard {
   book: Book;
 }
 
 export const BookCard_Normal: React.FC<PropsCard> = ({ book }) => {
-  const tocArray = Object.values(book.toc)
+  const tocArray = Object.values(book.toc);
 
   // Declare firstChapter before the conditional block
   let firstChapter;
@@ -49,11 +50,11 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
               />
             </div>
             <figcaption className={styles["caption"]}>
-              {post.info.cover.caption !== undefined ? (
-                <>{post.info.cover.caption}</>
-              ) : (
-                `The cover of *${post.info.title}*`
-              )}
+              <MDBlock>
+                {post.info.cover.caption !== undefined
+                  ? post.info.cover.caption
+                  : `The cover of *${post.info.title}*`}
+              </MDBlock>
             </figcaption>
           </figure>
 
@@ -61,7 +62,9 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
             <div className={styles["container"]}>
               <div className={styles["info"]}>
                 <div className={styles["title"]}>{post.info.title}</div>
-                <div className={styles["summary"]}>{post.info.summary}</div>
+                <div className={styles["summary"]}>
+                  <MDBlock>{post.info.summary}</MDBlock>
+                </div>
                 <div className={styles["author"]}>
                   <span>by</span>{" "}
                   <span className={styles["name"]}>
@@ -87,8 +90,14 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
             </div>
 
             <figcaption className={styles["caption"]}>
-              The post <cite>{post.info.title}</cite> is included in the book{" "}
-              <cite>{book.cover.info.title}</cite>
+              {book.cover.info.cover.caption != undefined ? (
+                <MDBlock>{book.cover.info.cover.caption}</MDBlock>
+              ) : (
+                <>
+                  The post <em>{post.info.title}</em> is included in the book{" "}
+                  <em>{book.cover.info.title}</em>
+                </>
+              )}
             </figcaption>
           </figure>
         </div>

@@ -11,7 +11,7 @@ interface Props {
   children: string;
 }
 
-const MDBlock: React.FC<Props> = ({ children }) => {
+export const MDBlock: React.FC<Props> = ({ children }) => {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkMath, remarkGfm]}
@@ -21,5 +21,3 @@ const MDBlock: React.FC<Props> = ({ children }) => {
     </ReactMarkdown>
   );
 };
-
-export default MDBlock;
