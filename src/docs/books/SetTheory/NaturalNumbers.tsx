@@ -16,7 +16,7 @@ const NaturalNumbers: Post = {
     path: "The Set Theoretic Definition of Natural Numbers",
     pageType: "post",
     summary: "",
-    latest_update: [2024, 9, 28],
+    latest_update: [2025, 9, 28],
     cover: {
       url: "",
       caption: undefined,

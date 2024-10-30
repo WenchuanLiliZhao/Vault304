@@ -1,13 +1,19 @@
 import "./appStyles/_app.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Channels from "./docs/pages/channels/_Toc";
-import Books from "./docs/books/_Books";
+import {BookPages, Books} from "./docs/books/_Books";
 import React from "react";
-import { Layout_Article, Layout_BookCover, Layout_Channel } from "./components/Layouts";
+import {
+  Layout_Article,
+  Layout_BookCover,
+  Layout_Channel,
+} from "./components/Layouts";
 import Home from "./docs/pages/channels/Home";
 import { Book, Channel, Post } from "./ObjectShapes";
 
 function App() {
+
+  console.log(BookPages)
 
   return (
     <>

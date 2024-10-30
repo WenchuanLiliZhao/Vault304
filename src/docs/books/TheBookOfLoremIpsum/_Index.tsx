@@ -1,4 +1,4 @@
-import { CreateBook, CreateTocDiv } from "../../../components/BookHandling";
+import { CreateBook } from "../../../components/BookHandling";
 import { Book } from "../../../ObjectShapes";
 import LoremIpsum from "./LoremIpsum";
 import PellentesqueDiam from "./PellentesqueDiam";
@@ -32,7 +32,6 @@ const book: Book = {
   start_reading: PellentesqueDiam,
 
   toc: {
-    "": CreateTocDiv({title: "---"}),
     LoremIpsum,
     PellentesqueDiam,
   },

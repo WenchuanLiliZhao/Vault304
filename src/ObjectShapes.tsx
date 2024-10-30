@@ -22,12 +22,13 @@ export interface Page {
 }
 
 interface ChannelInfo extends PageInfo {
-  title_display?: string | JSX.Element;
   pageType: "channel";
+  title_display?: string | JSX.Element;
 }
 
 export interface Channel extends Page {
   info: ChannelInfo;
+  headline?: JSX.Element;
 }
 
 interface Author {
@@ -36,7 +37,7 @@ interface Author {
 }
 
 interface PostInfo extends PageInfo {
-  pageType: "post" | "tocDiv";
+  pageType: "post";
   latest_update: [number, number, number];
   cover: {
     url: string;

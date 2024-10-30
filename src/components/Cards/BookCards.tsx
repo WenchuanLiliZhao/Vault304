@@ -7,9 +7,7 @@ interface PropsCard {
 }
 
 export const BookCard_Normal: React.FC<PropsCard> = ({ book }) => {
-  const tocArray = Object.values(book.toc).filter(
-    (item) => item.info.pageType !== "tocDiv"
-  );
+  const tocArray = Object.values(book.toc)
 
   // Declare firstChapter before the conditional block
   let firstChapter;

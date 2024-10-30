@@ -17,6 +17,7 @@ const Layout_Channel: React.FC<PropsChannel> = ({ channel }) => {
       <div className={`${styles.channelContent}`}>
         <Nav_Top />
         <PageHeader_Channel channel={channel} />
+        {channel.headline !== undefined ? channel.headline : null}
         <main className={`${styles.main}`}>
           {channel.content}
         </main>

@@ -77,50 +77,11 @@ export const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
           ) : (
             ""
           )}
-
-          {item.info.pageType == "tocDiv" ? (
-            <>
-              <div>
-                {item.info.title}
-              </div>
-            </>
-          ) : (
-            ""
-          )}
         </li>
       ))}
     </ul>
   );
 };
 
-// ========================
-// 在书的目录中插入 chapter name
-// ========================
-interface TocDivProps {
-  title: string | "---";
-}
-
-// Regular TypeScript function
-export function CreateTocDiv({ title }: TocDivProps): Post {
-  const output: Post = {
-    info: {
-      pageType: "tocDiv",
-      title: title,
-      path: "",
-      summary: "",
-      latest_update: [0,0,0],
-      cover: {
-        url: "",
-        caption: undefined
-      },
-      authors: [],
-      label: "",
-      tags: []
-    },
-    content: <></>
-  } as const;
-
-  return output;
-}
 
 
