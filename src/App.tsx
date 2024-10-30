@@ -8,17 +8,18 @@ import Home from "./docs/pages/channels/Home";
 import { Book, Channel, Post } from "./ObjectShapes";
 
 function App() {
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Layout_Channel page={Home} />} />
+          <Route index element={<Layout_Channel channel={Home} />} />
 
           {Object.values(Channels).map((item: Channel, i: number) => (
             <Route
               key={`${item}${i}`}
               path={`/${item.info.path}`}
-              element={<Layout_Channel page={item} />}
+              element={<Layout_Channel channel={item} />}
             />
           ))}
 

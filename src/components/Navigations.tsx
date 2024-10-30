@@ -40,8 +40,6 @@ const NavLink2Top: React.FC<NavLink2TopProps> = ({
 // 从这个文件开始创建 components
 // ============================
 
-console.log(GetTodayDateArray());
-
 const [year, month, day] = [
   FormatDate(GetTodayDateArray())[0],
   FormatDate(GetTodayDateArray())[1],

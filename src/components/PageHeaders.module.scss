@@ -1,0 +1,23 @@
+.channel-header {
+  width: 100%;
+
+  .container {
+    width: 50%;
+
+    padding: 64px 0;
+
+    .title {
+      font-size: 56px;
+      line-height: 1.25;
+      font-weight: bold;
+      color: var(--color-em);
+      transform: translate(-2px, 0);
+    }
+
+    .summary {
+      font-size: 16px;
+      line-height: 24px;
+      margin-top: 16px;
+    }
+  }
+}

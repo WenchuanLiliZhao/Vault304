@@ -23,6 +23,7 @@ const book: Book = {
     content: (<>sss</>)
   },
   status: "",
+  start_reading: NaturalNumbers,
   toc: {
     NaturalNumbers
   }

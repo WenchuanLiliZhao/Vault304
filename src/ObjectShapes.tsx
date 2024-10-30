@@ -12,6 +12,7 @@ type AuthorRole = (typeof AuthorRoles)[number];
 interface PageInfo {
   title: string;
   path: string;
+  summary: string;
   pageType: string;
 }
 
@@ -21,6 +22,7 @@ export interface Page {
 }
 
 interface ChannelInfo extends PageInfo {
+  title_display?: string | JSX.Element;
   pageType: "channel";
 }
 
@@ -35,7 +37,6 @@ interface Author {
 
 interface PostInfo extends PageInfo {
   pageType: "post" | "tocDiv";
-  summary: string;
   latest_update: [number, number, number];
   cover: {
     url: string;
@@ -68,5 +69,6 @@ interface BookCover extends Omit<Post, 'info'> {
 export interface Book {
   cover: BookCover;
   status: "" | "published";
+  start_reading?: Post;
   toc: { [key: string]: Post }
 };

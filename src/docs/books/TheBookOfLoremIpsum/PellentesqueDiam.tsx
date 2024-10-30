@@ -4,13 +4,13 @@ import Authors from "../../contributors/_Contributors";
 const PellentesqueDiam: Post = {
   info: {
     title: "Pellentesque Diam",
-    path: "Pellentesque diam diam",
+    path: "PellentesqueDiam",
     pageType: "post",
-    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    latest_update: [2024, 10, 25],
+    summary: "Vivamus nunc felis, interdum sed accumsan at, finibus et dui. Aenean sed massa dictum, condimentum felis sit amet, suscipit felis. Donec a tempor enim. In ut orci sit amet lacus bibendum convallis. Sed ac placerat orci. Duis orci diam, eleifend sit amet imperdiet ac, hendrerit sit amet mauris.",
+    latest_update: [2024, 10, 28],
     cover: {
-      url: "https://doodleipsum.com/700/flat?bg=7463D9&i=9bd6f51bc3c56b8a782c5bb8ed83d90f",
-      caption: `By [Doodle Ipsum](https://doodleipsum.com/)`,
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/17/2024_CIMSS_22W_Twentytwo_visible_infrared_satellite_loop.gif",
+      caption: undefined,
     },
     authors: [
       {

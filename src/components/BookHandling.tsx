@@ -9,16 +9,19 @@ import { NavLink2Top } from "./Navigations";
 type CorrectedBook = {
   cover: Book["cover"];
   status: Book["status"]; // 使用 Book['statues'] 但在生成时还原为 status
+  start_reading?: Book["start_reading"];
   toc: Book["toc"];
 };
 
 // 实现 BookA 和 BookParams，使其关联到 CorrectedBook
 
 type BookA<T extends Record<string, Post>> = CorrectedBook & {
+  start_reading?: Book["start_reading"];
   toc: T;
 };
 
 type BookParams<T extends Record<string, Post>> = CorrectedBook & {
+  start_reading?: Book["start_reading"];
   toc: T;
 };
 
@@ -26,6 +29,7 @@ type BookParams<T extends Record<string, Post>> = CorrectedBook & {
 export function CreateBook<T extends Record<string, Post>>({
   cover,
   status,
+  start_reading,
   toc,
 }: BookParams<T>): BookA<T> {
   // Extract all dates from pages
@@ -49,7 +53,7 @@ export function CreateBook<T extends Record<string, Post>>({
     page.info.path = `${cover.info.path}/${page.info.path}`;
   });
 
-  return { cover, status, toc };
+  return { cover, status, start_reading, toc };
 }
 
 // ========================
@@ -118,3 +122,5 @@ export function CreateTocDiv({ title }: TocDivProps): Post {
 
   return output;
 }
+
+

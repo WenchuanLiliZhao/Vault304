@@ -5,18 +5,20 @@ import { Book, Channel, Post } from "../ObjectShapes";
 import styles from "./Layouts.module.scss";
 import { MapBookToc } from "./BookHandling";
 import { Nav_Top } from "./Navigations";
+import { PageHeader_Channel } from "./PageHeaders";
 
 interface PropsChannel {
-  page: Channel;
+  channel: Channel;
 }
 
-const Layout_Channel: React.FC<PropsChannel> = ({ page }) => {
+const Layout_Channel: React.FC<PropsChannel> = ({ channel }) => {
   return (
     <>
       <div className={`${styles.channelContent}`}>
         <Nav_Top />
+        <PageHeader_Channel channel={channel} />
         <main className={`${styles.main}`}>
-          {page.content}
+          {channel.content}
         </main>
       </div>
     </>
