@@ -3,9 +3,9 @@ import styles from "./Navigations.module.scss";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { Channel } from "../ObjectShapes";
-import { FormatDate, GetTodayDateArray } from "./Date";
-import Channels from "../docs/pages/channels/_Toc";
+import { Channel } from "../../ObjectShapes";
+import { FormatDate, GetTodayDateArray } from "../Functions/Date";
+import Channels from "../../docs/pages/channels/_Toc";
 import React from "react";
 
 // ============================

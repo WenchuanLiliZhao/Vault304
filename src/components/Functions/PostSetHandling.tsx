@@ -1,4 +1,4 @@
-import { Post } from "../ObjectShapes";
+import { Post } from "../../ObjectShapes";
 
 // Function to retrieve and sort Posts by latest_update
 type PostMap = { [key: string]: Post };

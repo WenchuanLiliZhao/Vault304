@@ -1,4 +1,4 @@
-import { CreateBook } from "../../../components/BookHandling";
+import { CreateBook } from "../../../components/Functions/BookHandling";
 import { Book } from "../../../ObjectShapes";
 import NaturalNumbers from "./NaturalNumbers";
 

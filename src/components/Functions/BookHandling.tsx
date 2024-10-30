@@ -1,5 +1,5 @@
-import { Book, Post } from "../ObjectShapes";
-import { NavLink2Top } from "./Navigations";
+import { Book, Post } from "../../ObjectShapes";
+import { NavLink2Top } from "../Elements/Navigations";
 
 // ========================
 // 创造书籍

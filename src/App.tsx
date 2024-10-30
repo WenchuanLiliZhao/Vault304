@@ -7,7 +7,7 @@ import {
   Layout_Article,
   Layout_BookCover,
   Layout_Channel,
-} from "./components/Layouts";
+} from "./components/Elements/Layouts";
 import Home from "./docs/pages/channels/Home";
 import { Book, Channel, Post } from "./ObjectShapes";
 

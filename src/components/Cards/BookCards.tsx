@@ -1,6 +1,6 @@
 import styles from "./BookCards.module.scss";
 import { Book, Post } from "../../ObjectShapes";
-import { sortPostByUpdateDate } from "../PostSetHandling";
+import { sortPostByUpdateDate } from "../Functions/PostSetHandling";
 
 interface PropsCard {
   book: Book;
