@@ -1,4 +1,18 @@
+:root {
+  --spacing-max-content-width: 1440px;
+  --spacing-content-padding-w: 48px;
+  @media only screen and (max-width: 800px) {
+    --spacing-content-padding-w: 24px;
+  }
+}
+
 .channelContent {
-  max-width: 800px;
+  max-width: var(--spacing-max-content-width);
   margin: 0 auto;
+  padding: 48px var(--spacing-content-padding-w);
+  box-sizing: content-box;
+
+  .main {
+    display: block;
+  }
 }

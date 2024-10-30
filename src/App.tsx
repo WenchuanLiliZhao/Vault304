@@ -1,4 +1,4 @@
-import "./components/AppStyles/_app.scss";
+import "./appStyles/_app.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Channels from "./docs/pages/channels/_Toc";
 import Books from "./docs/books/_Books";

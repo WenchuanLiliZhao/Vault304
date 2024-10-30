@@ -1,0 +1,85 @@
+.nav-top {
+  border-bottom: 1px solid var(--color-main);
+
+  .top-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 4px solid var(--color-em);
+    padding: 16px 0;
+
+    a {
+      &:hover {
+        color: var(--color-sig) !important;
+  
+        * {
+          color: var(--color-sig) !important;
+        }
+      }
+    }
+
+    .date {
+      line-height: 1;
+
+      .day {
+        font-size: 56px;
+        font-weight: bold;
+        margin-right: 8px;
+        color: var(--color-em);
+      }
+
+      .month {
+        font-size: 32px;
+        font-weight: bold;
+        margin-right: 8px;
+        text-transform: uppercase;
+        color: var(--color-em);
+      }
+
+      .year {
+        font-size: 20px;
+      }
+    }
+
+    .sec-channels {
+      line-height: 22px;
+      font-size: 14px;
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  .channel-list {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    a.channel {
+      padding: 24px 0;
+
+      &[class~="active"] {
+        * {
+          color: var(--color-sig) !important;
+        }
+      }
+
+      &:hover {
+        * {
+          text-decoration: underline;
+        }
+      }
+
+      .channel-title {
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: bold;
+        color: var(--color-em);
+      }
+
+      &:not(:last-child) {
+        .channel-title {
+          border-right: 1px solid var(--color-em);
+        }
+      }
+    }
+  }
+}

@@ -5,8 +5,8 @@ import { Channel } from "../../../ObjectShapes"
 
 const Design: Channel = {
   info: {
-    title: "Design",
-    path: "Design",
+    title: "Art & Design",
+    path: "ArtAndDesign",
     pageType: "channel"
   },
 
