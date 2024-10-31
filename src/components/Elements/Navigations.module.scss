@@ -1,3 +1,13 @@
+.sec-channels {
+  line-height: 22px;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  a:hover {
+    color: var(--color-sig) !important;
+  }
+}
+
 .nav-top {
   border-bottom: 1px solid var(--color-main);
 
@@ -7,16 +17,6 @@
     justify-content: space-between;
     border-bottom: 4px solid var(--color-em);
     padding: 16px 0;
-
-    a {
-      &:hover {
-        color: var(--color-sig) !important;
-  
-        * {
-          color: var(--color-sig) !important;
-        }
-      }
-    }
 
     .date {
       line-height: 1;
@@ -40,13 +40,6 @@
         font-size: 20px;
         letter-spacing: 0.2em;
       }
-    }
-
-    .sec-channels {
-      line-height: 22px;
-      font-size: 14px;
-      display: flex;
-      gap: 8px;
     }
   }
 
@@ -81,6 +74,21 @@
           border-right: 1px solid var(--color-em);
         }
       }
+    }
+  }
+}
+
+.footer {
+  padding-top: 48px;
+  .container {
+    border-top: 4px solid var(--color-em);
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .copyright {
+      line-height: 22px;
+      font-size: 14px;
     }
   }
 }

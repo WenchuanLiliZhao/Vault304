@@ -2,11 +2,6 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 
-  .deco {
-    margin-left: 32px;
-    grid-column: span 3;
-  }
-
   .hr {
     border-top: 1px solid var(--color-main);
   }
@@ -51,7 +46,7 @@
             letter-spacing: 0.2em;
           }
         }
-        
+
         .label {
           font-size: 16px;
           line-height: 24px;
@@ -107,5 +102,49 @@
     }
   }
 
-  
+  .deco {
+    margin-left: 32px;
+    grid-column: span 3;
+    .sticky-container {
+      position: sticky;
+      top: 32px;
+
+      :global {
+        .calendar {
+          $calendar-spacing: 10px;
+
+          font-size: 14px;
+          line-height: 22px;
+          text-align: right;
+
+          .calendar-title {
+            font-weight: bold;
+            color: var(--color-em);
+          }
+
+          table {
+            width: 100%;
+            margin-top: $calendar-spacing;
+            th {
+              font-weight: bold;
+              color: var(--color-em);
+            }
+            th,
+            td {
+              padding: $calendar-spacing 0;
+
+              &.today {
+                color: var(--color-sig) !important;
+              }
+
+              &:first-of-type,
+              &:last-of-type {
+                color: var(--color-sec);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -7,6 +7,7 @@ import { Channel } from "../ObjectShapes/PageShapes";
 import { DateFormatter, GetTodayDateArray } from "../Functions/Date";
 import Channels from "../../docs/pages/channels/_Toc";
 import React from "react";
+import { SiteInfo } from "../../SiteInfo";
 
 // ============================
 // 首先，我需要在这里处理一下 NavLink 的页面滚动问题
@@ -17,7 +18,7 @@ interface NavLink2TopProps extends NavLinkProps {
   children: React.ReactNode;
 }
 
-const NavLink2Top: React.FC<NavLink2TopProps> = ({
+export const NavLink2Top: React.FC<NavLink2TopProps> = ({
   to,
   className,
   children,
@@ -46,7 +47,24 @@ const [year, month, day] = [
   DateFormatter(GetTodayDateArray())[2],
 ];
 
-const Nav_Top: React.FC = () => {
+function SecChannels() {
+  return (
+    <div className={styles["sec-channels"]}>
+      {[Channels.About, Channels.Contact, Channels.FAQ].map(
+        (channel: Channel, i: number) => (
+          <React.Fragment key={`${channel}${i}`}>
+            {i !== 0 ? "·" : ""}
+            <a href={`/${channel.info.path}`} className={styles["sec-channel"]}>
+              {channel.info.title}
+            </a>
+          </React.Fragment>
+        )
+      )}
+    </div>
+  );
+}
+
+export const Nav_Top: React.FC = () => {
   return (
     <nav className={styles["nav-top"]}>
       <div className={styles["top-info"]}>
@@ -55,45 +73,37 @@ const Nav_Top: React.FC = () => {
           <span className={styles["month"]}>{month}</span>
           <span className={styles["year"]}>{year}</span>
         </a>
-        <div className={styles["sec-channels"]}>
-          {[Channels.About, Channels.Contact, Channels.FAQ].map(
-            (channel: Channel, i: number) => (
-              <React.Fragment key={`${channel}${i}`}>
-                {i !== 0 ? "·" : ""}
-                <a
-                  href={`/${channel.info.path}`}
-                  className={styles["sec-channel"]}
-                >
-                  {channel.info.title}
-                </a>
-              </React.Fragment>
-            )
-          )}
-        </div>
+        <SecChannels />
       </div>
       <div className={styles["channel-list"]}>
-        {[Channels.Home, Channels.Design, Channels.BrainWaves, Channels.Collections].map(
-          (channel: Channel, i: number) => (
-            <NavLink2Top
-              key={`${channel}${i}`}
-              to={`/${channel.info.path}`}
-              className={styles.channel}
-            >
-              <div className={styles["channel-title"]}>
-                {channel.info.title}
-              </div>
-            </NavLink2Top>
-          )
-        )}
+        {[
+          Channels.Home,
+          Channels.Design,
+          Channels.BrainWaves,
+          Channels.Collections,
+        ].map((channel: Channel, i: number) => (
+          <NavLink2Top
+            key={`${channel}${i}`}
+            to={`/${channel.info.path}`}
+            className={styles.channel}
+          >
+            <div className={styles["channel-title"]}>{channel.info.title}</div>
+          </NavLink2Top>
+        ))}
       </div>
     </nav>
   );
 };
 
-export {
-  // 处理页面滚动
-  NavLink2Top,
-
-  // Nav 的各种 variants
-  Nav_Top,
+export const Footer = () => {
+  return (
+    <>
+      <footer className={styles["footer"]}>
+        <div className={styles["container"]}>
+          <div className={styles["copyright"]}>{SiteInfo.copyRight}</div>
+          <SecChannels />
+        </div>
+      </footer>
+    </>
+  );
 };

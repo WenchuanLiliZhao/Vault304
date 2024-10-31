@@ -4,13 +4,13 @@ import { Author, Post } from "../../ObjectShapes/PageShapes";
 import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
 import { DateFormatter } from "../../Functions/Date";
 import { MDBlock } from "../../Functions/Markdown";
+import { Calendar } from "../Calendar";
 
 interface BookPageListProps {
   array: Post[];
   sortby?: "date";
   preloadCount: number;
   loadCount: number;
-  deco: JSX.Element;
   // note: `preloadCount` and `loadCound` must be even (2n), otherwise the UI might rendered wieredly (although it is not an actual bug)
 }
 
@@ -19,7 +19,6 @@ export const PostCardList: React.FC<BookPageListProps> = ({
   sortby,
   preloadCount,
   loadCount,
-  deco,
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(preloadCount);
 
@@ -81,7 +80,9 @@ export const PostCardList: React.FC<BookPageListProps> = ({
                 </div>
               </a>
 
-              {(i + 1) % 2 === 0 && (i + 1) != sortedPosts.length && <div className={styles["hr"]}></div>}
+              {(i + 1) % 2 === 0 && i + 1 != sortedPosts.length && (
+                <div className={styles["hr"]}></div>
+              )}
             </React.Fragment>
           ))}
           {visibleCount < sortedPosts.length && (
@@ -91,7 +92,11 @@ export const PostCardList: React.FC<BookPageListProps> = ({
           )}
         </div>
       )}
-      <div className={styles["deco"]}>{deco}</div>
+      <div className={styles["deco"]}>
+        <div className={styles["sticky-container"]}>
+          <Calendar />
+        </div>
+      </div>
     </div>
   );
 };
