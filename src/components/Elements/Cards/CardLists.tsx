@@ -4,7 +4,8 @@ import { Author, Post } from "../../ObjectShapes/PageShapes";
 import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
 import { DateFormatter } from "../../Functions/Date";
 import { MDBlock } from "../../Functions/Markdown";
-import { Calendar } from "../Calendar";
+import { Calendar } from "../Minitools/Calendar";
+import { SiteInfo } from "../../../SiteInfo";
 
 interface BookPageListProps {
   array: Post[];
@@ -95,6 +96,12 @@ export const PostCardList: React.FC<BookPageListProps> = ({
       <div className={styles["deco"]}>
         <div className={styles["sticky-container"]}>
           <Calendar />
+          <div style={{fontSize: "14px"}}>
+            <p style={{fontWeight: "bold", marginBlock: '24px'}}>About {SiteInfo.title}</p>
+            <p style={{ lineHeight: "1.5" }}>
+              {SiteInfo.summary}
+            </p>
+          </div>
         </div>
       </div>
     </div>

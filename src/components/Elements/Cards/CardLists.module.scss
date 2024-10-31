@@ -105,14 +105,21 @@
   .deco {
     margin-left: 32px;
     grid-column: span 3;
+
     .sticky-container {
       position: sticky;
       top: 32px;
+      max-width: 288px;
+      margin-left: auto;
+
+      & > * {
+        margin-bottom: 32px;
+        text-align: right;
+      }
 
       :global {
         .calendar {
           $calendar-spacing: 10px;
-
           font-size: 14px;
           line-height: 22px;
           text-align: right;
@@ -140,6 +147,10 @@
               &:first-of-type,
               &:last-of-type {
                 color: var(--color-sec);
+              }
+
+              &:first-of-type {
+                width: 20px;
               }
             }
           }
