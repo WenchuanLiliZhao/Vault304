@@ -1,7 +1,7 @@
 // const PageBody: React.FC<Props> = ({ children }) =>
 
 import React from "react";
-import { Book, Channel, Post } from "../../ObjectShapes";
+import { Book, Channel, Post } from "../ObjectShapes/PageShapes";
 import styles from "./Layouts.module.scss";
 import { MapBookToc } from "../Functions/BookHandling";
 import { Nav_Top } from "./Navigations";

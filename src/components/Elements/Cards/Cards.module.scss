@@ -9,6 +9,7 @@
       grid-template-columns: calc(6 / 9 * 100%) calc(3 / 9 * 100%);
 
       figure.cover {
+
         .img-container {
           position: relative;
           width: 100%;
@@ -105,6 +106,12 @@
     }
 
     .book {
+      &:hover {
+        figcaption {
+          text-decoration: underline;
+        }
+      }
+
       figure.book-cover {
         .img-container {
           position: relative;

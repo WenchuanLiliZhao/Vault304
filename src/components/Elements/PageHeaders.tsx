@@ -1,4 +1,4 @@
-import { Channel } from "../../ObjectShapes";
+import { Channel } from "../ObjectShapes/PageShapes";
 import styles from "./PageHeaders.module.scss";
 
 interface PageHeaderInfo_Channel {

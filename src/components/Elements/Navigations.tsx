@@ -3,7 +3,7 @@ import styles from "./Navigations.module.scss";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { Channel } from "../../ObjectShapes";
+import { Channel } from "../ObjectShapes/PageShapes";
 import { DateFormatter, GetTodayDateArray } from "../Functions/Date";
 import Channels from "../../docs/pages/channels/_Toc";
 import React from "react";
@@ -51,9 +51,9 @@ const Nav_Top: React.FC = () => {
     <nav className={styles["nav-top"]}>
       <div className={styles["top-info"]}>
         <a href="" className={styles["date"]}>
-          <span className={styles.day}>{day}</span>
-          <span className={styles.month}>{month}</span>
-          <span className={styles.year}>{year}</span>
+          <span className={styles["day"]}>{day}</span>
+          <span className={styles["month"]}>{month}</span>
+          <span className={styles["year"]}>{year}</span>
         </a>
         <div className={styles["sec-channels"]}>
           {[Channels.About, Channels.Contact, Channels.FAQ].map(

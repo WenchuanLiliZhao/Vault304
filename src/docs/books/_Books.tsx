@@ -1,4 +1,4 @@
-import { Post } from "../../ObjectShapes";
+import { Post } from "../../components/ObjectShapes/PageShapes";
 import Book_SetTheory from "./SetTheory/_Index";
 import Book_LoremIpsum from "./TheBookOfLoremIpsum/_Index";
 

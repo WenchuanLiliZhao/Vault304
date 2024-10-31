@@ -1,6 +1,6 @@
 // NotFound.tsx
 
-import { Page } from "../../ObjectShapes"
+import { Page } from "../../components/ObjectShapes/PageShapes"
 
 const NotFound: Page = {
   info: {

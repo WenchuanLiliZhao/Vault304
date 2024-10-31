@@ -1,6 +1,6 @@
 import styles from "./CardLists.module.scss";
 import React, { useState } from "react";
-import { Author, Post } from "../../../ObjectShapes";
+import { Author, Post } from "../../ObjectShapes/PageShapes";
 import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
 import { DateFormatter } from "../../Functions/Date";
 import { MDBlock } from "../../Functions/Markdown";
@@ -10,6 +10,8 @@ interface BookPageListProps {
   sortby?: "date";
   preloadCount: number;
   loadCount: number;
+  deco: JSX.Element;
+  // note: `preloadCount` and `loadCound` must be even (2n), otherwise the UI might rendered wieredly (although it is not an actual bug)
 }
 
 export const PostCardList: React.FC<BookPageListProps> = ({
@@ -17,6 +19,7 @@ export const PostCardList: React.FC<BookPageListProps> = ({
   sortby,
   preloadCount,
   loadCount,
+  deco,
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(preloadCount);
 
@@ -27,9 +30,9 @@ export const PostCardList: React.FC<BookPageListProps> = ({
   };
 
   return (
-    <>
+    <div className={styles["post-list"]}>
       {sortby === "date" && (
-        <div className={styles["book-page-list"]}>
+        <div className={styles["list"]}>
           {sortedPosts.slice(0, visibleCount).map((item: Post, i: number) => (
             <React.Fragment key={`${item}${i}`}>
               <a href={`/${item.info.path}`} className={styles["post-card"]}>
@@ -47,9 +50,7 @@ export const PostCardList: React.FC<BookPageListProps> = ({
                       {DateFormatter(item.info.latest_update)[0]}
                     </div>
                   </div>
-                  <div className={styles["label"]}>
-                    {item.info.label}
-                  </div>
+                  <div className={styles["label"]}>{item.info.label}</div>
                 </div>
 
                 <div className={styles["cover"]}>
@@ -62,26 +63,25 @@ export const PostCardList: React.FC<BookPageListProps> = ({
 
                 <div className={styles["info"]}>
                   <div className={styles["title"]}>{item.info.title}</div>
-                  <div className="summary">
+                  <div className={styles["summary"]}>
                     <MDBlock>{item.info.summary}</MDBlock>
                   </div>
-                  <div className="authors">
+                  <div className={styles["authors"]}>
                     by{" "}
                     {item.info.authors.map((author: Author, k: number) => (
-                      <span key={`${author}${k}`} className={styles["author"]}>
+                      <React.Fragment key={`${author}${k}`}>
                         {k === item.info.authors.length - 1 && " and "}
                         {k !== 0 && k !== item.info.authors.length - 1 && ", "}
-                        {author.data.info.title}
-                      </span>
+                        <span className={styles["name"]}>
+                          {author.data.info.title}
+                        </span>
+                      </React.Fragment>
                     ))}
                   </div>
                 </div>
               </a>
-              {(i + 1) % 2 === 0 && (
-                <div className={styles["hr"]}>
-                  ---------------------------------------
-                </div>
-              )}
+
+              {(i + 1) % 2 === 0 && (i + 1) != sortedPosts.length && <div className={styles["hr"]}></div>}
             </React.Fragment>
           ))}
           {visibleCount < sortedPosts.length && (
@@ -91,6 +91,7 @@ export const PostCardList: React.FC<BookPageListProps> = ({
           )}
         </div>
       )}
-    </>
+      <div className={styles["deco"]}>{deco}</div>
+    </div>
   );
 };

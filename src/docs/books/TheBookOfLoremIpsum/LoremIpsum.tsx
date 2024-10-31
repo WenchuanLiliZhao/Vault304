@@ -1,5 +1,5 @@
 import { Img } from "../../../components/Elements/InLine/Img";
-import { Post } from "../../../ObjectShapes";
+import { Post } from "../../../components/ObjectShapes/PageShapes";
 import Authors from "../../contributors/_Contributors";
 
 const LoremIpsum: Post = {
@@ -29,7 +29,7 @@ const LoremIpsum: Post = {
         role: "illustrator",
       },
     ],
-    label: "Undefined",
+    label: "Digital Codex",
     tags: ["UI/UX design", "Loren Ipsum"],
     theme: undefined,
   },

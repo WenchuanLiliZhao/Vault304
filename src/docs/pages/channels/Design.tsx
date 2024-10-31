@@ -1,5 +1,5 @@
 // Home.tsx
-import { Channel } from "../../../ObjectShapes"
+import { Channel } from "../../../components/ObjectShapes/PageShapes"
 
 
 

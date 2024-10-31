@@ -9,7 +9,7 @@ import {
   Layout_Channel,
 } from "./components/Elements/Layouts";
 import Home from "./docs/pages/channels/Home";
-import { Book, Channel, Post } from "./ObjectShapes";
+import { Book, Channel, Post } from "./components/ObjectShapes/PageShapes";
 
 function App() {
 

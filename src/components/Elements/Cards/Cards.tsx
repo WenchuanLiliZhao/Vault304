@@ -1,5 +1,5 @@
 import styles from "./Cards.module.scss";
-import { Book, Post } from "../../../ObjectShapes";
+import { Book, Post } from "../../ObjectShapes/PageShapes";
 import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
 import { MDBlock } from "../../Functions/Markdown";
 
@@ -79,7 +79,7 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
           </div>
         </div>
 
-        <div className={styles["book"]}>
+        <a href={`/${book.cover.info.path}`} className={styles["book"]}>
           <figure className={styles["book-cover"]}>
             <div className={styles["img-container"]}>
               <img
@@ -100,7 +100,7 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
               )}
             </figcaption>
           </figure>
-        </div>
+        </a>
       </div>
     </div>
   );

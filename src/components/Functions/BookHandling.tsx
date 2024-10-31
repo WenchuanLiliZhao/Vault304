@@ -1,4 +1,4 @@
-import { Book, Post } from "../../ObjectShapes";
+import { Book, Post } from "../ObjectShapes/PageShapes";
 import { NavLink2Top } from "../Elements/Navigations";
 
 // ========================

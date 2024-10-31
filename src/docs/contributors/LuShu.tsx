@@ -1,4 +1,4 @@
-import { Post } from "../../ObjectShapes";
+import { Post } from "../../components/ObjectShapes/PageShapes";
 
 const Contributors_LuShu: Post = {
   info: {
@@ -12,7 +12,7 @@ const Contributors_LuShu: Post = {
       caption: undefined
     },
     authors: [],
-    label: "",
+    label: "contributor",
     tags: [],
     theme: undefined,
     sidebar: undefined,

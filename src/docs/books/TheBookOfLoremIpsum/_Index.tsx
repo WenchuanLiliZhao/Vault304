@@ -1,5 +1,6 @@
 import { CreateBook } from "../../../components/Functions/BookHandling";
-import { Book } from "../../../ObjectShapes";
+import { Book } from "../../../components/ObjectShapes/PageShapes";
+import AliquamEratVolutpat from "./AliquamEratVolutpat";
 import LoremIpsum from "./LoremIpsum";
 import PellentesqueDiam from "./PellentesqueDiam";
 
@@ -17,7 +18,7 @@ const book: Book = {
         caption: undefined,
       },
       authors: [],
-      label: "Design",
+      label: "Digital Codex",
       tags: [],
       theme: undefined,
     },
@@ -34,6 +35,7 @@ const book: Book = {
   toc: {
     LoremIpsum,
     PellentesqueDiam,
+    AliquamEratVolutpat,
   },
 }
 

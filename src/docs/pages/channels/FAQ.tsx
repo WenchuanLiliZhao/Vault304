@@ -1,6 +1,6 @@
 // About.tsx
 
-import { Channel } from "../../../ObjectShapes"
+import { Channel } from "../../../components/ObjectShapes/PageShapes"
 
 const FAQ: Channel = {
   info: {

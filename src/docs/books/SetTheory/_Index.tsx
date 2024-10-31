@@ -1,5 +1,5 @@
 import { CreateBook } from "../../../components/Functions/BookHandling";
-import { Book } from "../../../ObjectShapes";
+import { Book } from "../../../components/ObjectShapes/PageShapes";
 import NaturalNumbers from "./NaturalNumbers";
 
 const book: Book = {
@@ -15,7 +15,7 @@ const book: Book = {
         caption: undefined
       },
       authors: [],
-      label: "",
+      label: "mathematics",
       tags: [],
       theme: undefined,
       sidebar: undefined
