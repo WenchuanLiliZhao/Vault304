@@ -1,13 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
+import Channels from "../../docs/pages/channels/_Toc";
 import styles from "./Navigations.module.scss";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink, NavLinkProps } from "react-router-dom";
 import { Channel } from "../ObjectShapes/PageShapes";
 import { DateFormatter, GetTodayDateArray } from "../Functions/Date";
-import Channels from "../../docs/pages/channels/_Toc";
 import React from "react";
 import { SiteInfo } from "../../SiteInfo";
+import { ToggleClassBtn } from "../Functions/ClickEvents";
 
 // ============================
 // 首先，我需要在这里处理一下 NavLink 的页面滚动问题
@@ -104,6 +105,59 @@ export const Footer = () => {
           <SecChannels />
         </div>
       </footer>
+    </>
+  );
+};
+
+
+
+export const Nav_Btn = () => {
+  const BtnNavPages = [
+    [Channels.Home, Channels.Design, Channels.BrainWaves, Channels.Collections],
+    [Channels.About, Channels.Contact, Channels.FAQ],
+  ];
+  return (
+    <>
+      <ToggleClassBtn className={styles["nav-btn"]} toggle={"open"}>
+        <>
+          <ToggleClassBtn className={styles["btn"]} toggle={"active"}>
+            <>
+              <span className={`${styles["line"]} ${styles["a"]}`}>
+                <span className={styles["lineBg"]}></span>
+              </span>
+              <span className={`${styles["line"]} ${styles["b"]}`}>
+                <span className={styles["lineBg"]}></span>
+              </span>
+              <span className={`${styles["line"]} ${styles["c"]}`}>
+                <span className={styles["lineBg"]}></span>
+              </span>
+              <span className={`${styles["line"]} ${styles["d"]}`}>
+                <span className={styles["lineBg"]}></span>
+              </span>
+            </>
+          </ToggleClassBtn>
+          <nav className={styles["btn-nav"]}>
+            {BtnNavPages.map((group, i: number) => (
+              <React.Fragment key={`${group}${i}`}>
+                <div className={styles["group"]}>
+                  {group.map((page, k: number) => (
+                    <a
+                      key={`${page}${k}`}
+                      href={`/${page.info.path}`}
+                      className={styles["page"]}
+                    >
+                      {page.info.title}
+                    </a>
+                  ))}
+                </div>
+                {i + 1 !== BtnNavPages.length && (
+                  <div className={styles["hr"]}></div>
+                )}
+              </React.Fragment>
+            ))}
+          </nav>
+        </>
+      </ToggleClassBtn>
     </>
   );
 };

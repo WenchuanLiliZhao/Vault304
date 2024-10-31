@@ -4,7 +4,7 @@ import React from "react";
 import { Book, Channel, Post } from "../ObjectShapes/PageShapes";
 import styles from "./Layouts.module.scss";
 import { MapBookToc } from "../Functions/BookHandling";
-import { Footer, Nav_Top } from "./Navigations";
+import { Footer, Nav_Btn, Nav_Top } from "./Navigations";
 import { PageHeader_Channel } from "./PageHeaders";
 
 interface PropsChannel {
@@ -18,11 +18,10 @@ const Layout_Channel: React.FC<PropsChannel> = ({ channel }) => {
         <Nav_Top />
         <PageHeader_Channel channel={channel} />
         {channel.headline !== undefined ? channel.headline : null}
-        <main className={`${styles.main}`}>
-          {channel.content}
-        </main>
+        <main className={`${styles.main}`}>{channel.content}</main>
         <Footer />
       </div>
+      <Nav_Btn />
     </>
   );
 };
