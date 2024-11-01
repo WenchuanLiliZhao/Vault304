@@ -1,7 +1,7 @@
 import styles from "./CardLists.module.scss";
 import React, { useState } from "react";
 import { Author, Post } from "../../ObjectShapes/PageShapes";
-import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
+import { postFilter } from "../../Functions/PostSetHandling";
 import { DateFormatter } from "../../Functions/Date";
 import { MDBlock } from "../../Functions/Markdown";
 import { Calendar } from "../Minitools/Calendar";
@@ -9,7 +9,7 @@ import { SiteInfo } from "../../../SiteInfo";
 
 interface BookPageListProps {
   array: Post[];
-  sortby?: "date";
+  sortby: "date";
   preloadCount: number;
   loadCount: number;
   // note: `preloadCount` and `loadCound` must be even (2n), otherwise the UI might rendered wieredly (although it is not an actual bug)
@@ -23,7 +23,7 @@ export const PostCardList: React.FC<BookPageListProps> = ({
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(preloadCount);
 
-  const sortedPosts = sortby === "date" ? sortPostByUpdateDate(array) : [];
+  const sortedPosts = postFilter(array, sortby)
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + loadCount);

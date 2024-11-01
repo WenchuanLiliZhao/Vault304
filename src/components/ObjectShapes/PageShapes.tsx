@@ -1,5 +1,7 @@
 import { Label } from "./Strings";
 
+export type AnyPage = Page | Channel | Post | BookCover
+
 export const AuthorRoles = [
   "",
   "author",
@@ -19,6 +21,7 @@ export interface Page {
   info: PageInfo;
   content: JSX.Element | string | (JSX.Element | string)[];
 }
+
 interface ChannelInfo extends PageInfo {
   pageType: "channel";
   title_display?: string | JSX.Element;
@@ -33,7 +36,7 @@ export interface Author {
   data: Post;
   role: AuthorRole;
 }
-interface PostInfo extends PageInfo {
+export interface PostInfo extends PageInfo {
   pageType: "post";
   latest_update: [number, number, number];
   cover: {
@@ -49,10 +52,10 @@ interface PostInfo extends PageInfo {
   sidebar?: JSX.Element;
 }
 
-export interface Post {
+export interface Post extends Page {
   info: PostInfo;
 
-  content: (string | JSX.Element)[] | JSX.Element;
+  content: (string | JSX.Element)[] | JSX.Element | string;
 }
 interface BookCoverInfo extends Omit<PostInfo, 'pageType'> {
   pageType: "book cover";

@@ -12,7 +12,6 @@ const Channels = {
   BrainWaves,
   Collections,
 
-
   About,
   Contact,
   FAQ,

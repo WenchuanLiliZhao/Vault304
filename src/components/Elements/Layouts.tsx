@@ -6,6 +6,7 @@ import styles from "./Layouts.module.scss";
 import { MapBookToc } from "../Functions/BookHandling";
 import { Footer, Nav_Btn, Nav_Top } from "./Navigations";
 import { PageHeader_Channel } from "./PageHeaders";
+import { MDBlock } from "../Functions/Markdown";
 
 interface PropsChannel {
   channel: Channel;
@@ -42,7 +43,20 @@ const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
       ) : (
         ""
       )}
-      <article>{page.content}</article>
+      <article>
+        {typeof page.content === "string" && <MDBlock>{page.content}</MDBlock>}
+        {typeof page.content === "object" && page.content}
+        {Array.isArray(page.content) && (
+          <>
+            {page.content.map((item, i: number) => (
+              <React.Fragment key={`${item}${i}`}>
+                {typeof item === "string" && <MDBlock>{item}</MDBlock>}
+                {typeof item === "object" && item}
+              </React.Fragment>
+            ))}
+          </>
+        )}
+      </article>
     </>
   );
 };

@@ -1,22 +1,22 @@
 import { Post } from "../../../components/ObjectShapes/PageShapes";
 import Contributors_Wenchuan from "../../contributors/Wenchuan";
 
-const content = [
-  `
+const content = `
 aaa
-`,
 
-  `
 bbbb $x$
-`,
-];
+$$
+x
+$$
+`;
 
 const NaturalNumbers: Post = {
   info: {
     title: "The Set Theoretic Definition of Natural Numbers",
     path: "The Set Theoretic Definition of Natural Numbers",
     pageType: "post",
-    summary: "Sed nunc mi, dictum et luctus sed, tristique sed odio. Nullam vitae turpis a ligula tincidunt semper vitae id felis. Suspendisse blandit",
+    summary:
+      "Sed nunc mi, dictum et luctus sed, tristique sed odio. Nullam vitae turpis a ligula tincidunt semper vitae id felis. Suspendisse blandit",
     latest_update: [2025, 9, 28],
     cover: {
       url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Anna_Fernqvist%2C_rollportr%C3%A4tt_-_SMV_-_H1_122_-_Restoration.jpg",
@@ -25,8 +25,8 @@ const NaturalNumbers: Post = {
     authors: [
       {
         data: Contributors_Wenchuan,
-        role: "author"
-      }
+        role: "author",
+      },
     ],
     label: "mathematics",
     tags: [],

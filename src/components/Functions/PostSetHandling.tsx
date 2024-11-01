@@ -1,25 +1,72 @@
-import { Post } from "../ObjectShapes/PageShapes";
+import { Post, PostInfo } from "../ObjectShapes/PageShapes";
 
-// Function to retrieve and sort Posts by latest_update
 type PostMap = Post[];
+export type SortBy = "date" | "a-z" | "z-a" | "title-length";
 
-export function sortPostByUpdateDate(channels: PostMap): Post[] {
-  // Filter the array to include only posts with pageType "post"
+export function postFilter(channels: PostMap, sortBy: SortBy): Post[] {
+  // First filter to include only posts with pageType "post"
   const postList = channels.filter((post) => post.info.pageType === "post");
 
-  // Sort the posts by latest_update, considering it as a tuple [year, month, day]
-  postList.sort((a, b) => {
+  // Sort based on the specified criteria
+  switch (sortBy) {
+    case "date":
+      return sortByDate(postList);
+    case "a-z":
+      return sortByTitleAsc(postList);
+    case "z-a":
+      return sortByTitleDesc(postList);
+    case "title-length":
+      return sortByTitleLength(postList);
+    default:
+      return postList;
+  }
+}
+
+// Helper functions for different sorting methods
+function sortByDate(posts: Post[]): Post[] {
+  return [...posts].sort((a, b) => {
     const [aYear, aMonth, aDay] = a.info.latest_update;
     const [bYear, bMonth, bDay] = b.info.latest_update;
 
     if (aYear !== bYear) {
-      return bYear - aYear; // descending order by year
+      return bYear - aYear;
     } else if (aMonth !== bMonth) {
-      return bMonth - aMonth; // descending order by month
+      return bMonth - aMonth;
     } else {
-      return bDay - aDay; // descending order by day
+      return bDay - aDay;
     }
   });
-
-  return postList;
 }
+
+function sortByTitleAsc(posts: Post[]): Post[] {
+  return [...posts].sort((a, b) => 
+    a.info.title.localeCompare(b.info.title)
+  );
+}
+
+function sortByTitleDesc(posts: Post[]): Post[] {
+  return [...posts].sort((a, b) => 
+    b.info.title.localeCompare(a.info.title)
+  );
+}
+
+function sortByTitleLength(posts: Post[]): Post[] {
+  return [...posts].sort((a, b) => 
+    a.info.title.length - b.info.title.length
+  );
+}
+
+
+// Generic filter function for Post arrays
+export function filterPosts(
+  posts: Post[],
+  criteria: Partial<PostInfo>
+): Post[] {
+  return posts.filter(post => {
+    // Check each criterion against the post's info
+    return Object.entries(criteria).every(([key, value]) => {
+      return post.info[key as keyof PostInfo] === value;
+    });
+  });
+}
+

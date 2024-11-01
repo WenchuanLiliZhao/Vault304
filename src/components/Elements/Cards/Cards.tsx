@@ -1,6 +1,6 @@
 import styles from "./Cards.module.scss";
 import { Book, Post } from "../../ObjectShapes/PageShapes";
-import { sortPostByUpdateDate } from "../../Functions/PostSetHandling";
+import { postFilter } from "../../Functions/PostSetHandling";
 import { MDBlock } from "../../Functions/Markdown";
 
 interface PropsCard {
@@ -32,7 +32,7 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
   let post;
 
   if (show === "latest") {
-    post = sortPostByUpdateDate(Object.values(book.toc))[0];
+    post = postFilter(Object.values(book.toc), "date")[0];
   } else {
     post = show;
   }

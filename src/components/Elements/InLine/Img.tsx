@@ -1,13 +1,14 @@
-import styles from "./Img.module.scss"
+import styles from "./Img.module.scss";
 import React, { useState, useEffect } from 'react';
 
 interface ImgProps {
   src: string;
+  ratio?: [number, number];  // Making ratio optional
   alt: string;
   className?: string;
 }
 
-export const Img: React.FC<ImgProps> = ({ src, alt, className }) => {
+export const Img: React.FC<ImgProps> = ({ src, ratio = [16, 9], alt, className }) => {
   const [aspectRatio, setAspectRatio] = useState<number | null>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -20,16 +21,17 @@ export const Img: React.FC<ImgProps> = ({ src, alt, className }) => {
     };
   }, [src]);
 
-  // 提供一个默认的宽高比，比如4:3或16:9，在图片未加载前应用
-  const defaultAspectRatio = 16 / 9;
+  // Use the provided ratio or default to 16:9 if none is provided
+  const [ratioWidth, ratioHeight] = ratio;
+  const calculatedDefaultAspectRatio = ratioWidth / ratioHeight;
 
-  // 确保在图片加载前也有合适的占位高度
-  const paddingBottom = aspectRatio ? `${100 / aspectRatio}%` : `${100 / defaultAspectRatio}%`;
+  // Ensure a placeholder height until the image is loaded
+  const paddingBottom = aspectRatio ? `${100 / aspectRatio}%` : `${100 / calculatedDefaultAspectRatio}%`;
 
   return (
     <div
       className={`${className} ${styles["img-container"]}`}
-      style={{paddingBottom}}
+      style={{ paddingBottom }}
     >
       {loaded && (
         <img
