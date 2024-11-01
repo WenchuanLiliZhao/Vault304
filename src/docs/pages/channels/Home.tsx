@@ -20,8 +20,8 @@ const Home: Channel = {
       <PostCardList
         array={BookPagesArray}
         sortby={"date"}
-        preloadCount={10}
-        loadCount={10}
+        preloadCount={undefined}
+        loadCount={undefined}
       />
     </>
   ),

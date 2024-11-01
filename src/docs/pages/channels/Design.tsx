@@ -2,6 +2,7 @@
 import { PostCardList } from "../../../components/Elements/Cards/CardLists";
 import { filterPosts } from "../../../components/Functions/PostSetHandling";
 import { Channel } from "../../../components/ObjectShapes/PageShapes";
+import { Labels_Design } from "../../../components/ObjectShapes/Strings";
 import { BookPagesArray } from "../../books/_Books";
 
 const Design: Channel = {
@@ -13,13 +14,15 @@ const Design: Channel = {
     pageType: "channel",
   },
 
+  headline: undefined,
+
   content: (
     <>
       <PostCardList
-        array={filterPosts(BookPagesArray, { label: "mathematics" })}
-        preloadCount={10}
-        loadCount={10}
+        array={filterPosts(BookPagesArray, Labels_Design)}
         sortby={"date"}
+        preloadCount={undefined}
+        loadCount={undefined}
       />
     </>
   ),

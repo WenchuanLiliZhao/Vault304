@@ -1,7 +1,7 @@
 import "./appStyles/_app.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Channels from "./docs/pages/channels/_Toc";
-import { BookPagesArray, Books } from "./docs/books/_Books";
+import { Books } from "./docs/books/_Books";
 import React from "react";
 import {
   Layout_Article,
@@ -11,10 +11,8 @@ import {
 import Home from "./docs/pages/channels/Home";
 import { AnyPage, Book, Channel, Post } from "./components/ObjectShapes/PageShapes";
 import IndePages from "./docs/pages/independent/_Toc";
-import { filterPosts } from "./components/Functions/PostSetHandling";
 
 function App() {
-  console.log(filterPosts(BookPagesArray, {label: "mathematics"}))
 
   return (
     <>

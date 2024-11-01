@@ -1,4 +1,5 @@
-import { Post, PostInfo } from "../ObjectShapes/PageShapes";
+import { Post } from "../ObjectShapes/PageShapes";
+import { Label } from "../ObjectShapes/Strings";
 
 type PostMap = Post[];
 export type SortBy = "date" | "a-z" | "z-a" | "title-length";
@@ -57,16 +58,17 @@ function sortByTitleLength(posts: Post[]): Post[] {
 }
 
 
-// Generic filter function for Post arrays
+function isLabelInConst(label: Label, labelConst: Record<string, string>): boolean {
+  // Check if the label is in the constant object
+  return Object.values(labelConst).includes(label);
+}
+
 export function filterPosts(
   posts: Post[],
-  criteria: Partial<PostInfo>
+  labelConst: Record<string, string>
 ): Post[] {
   return posts.filter(post => {
-    // Check each criterion against the post's info
-    return Object.entries(criteria).every(([key, value]) => {
-      return post.info[key as keyof PostInfo] === value;
-    });
+    return isLabelInConst(post.info.label, labelConst);
   });
 }
 

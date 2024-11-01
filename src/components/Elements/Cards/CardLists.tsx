@@ -10,8 +10,8 @@ import { SiteInfo } from "../../../SiteInfo";
 interface BookPageListProps {
   array: Post[];
   sortby: "date";
-  preloadCount: number;
-  loadCount: number;
+  preloadCount: undefined | number;
+  loadCount: undefined | number;
   // note: `preloadCount` and `loadCound` must be even (2n), otherwise the UI might rendered wieredly (although it is not an actual bug)
 }
 
@@ -21,12 +21,16 @@ export const PostCardList: React.FC<BookPageListProps> = ({
   preloadCount,
   loadCount,
 }) => {
-  const [visibleCount, setVisibleCount] = useState<number>(preloadCount);
+
+  const usePreloadCount = preloadCount != undefined ? preloadCount : 10
+  const usepreloadCount = loadCount != undefined ? loadCount : 10
+
+  const [visibleCount, setVisibleCount] = useState<number>(usePreloadCount);
 
   const sortedPosts = postFilter(array, sortby)
 
   const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + loadCount);
+    setVisibleCount((prevCount) => prevCount + usepreloadCount);
   };
 
   return (
