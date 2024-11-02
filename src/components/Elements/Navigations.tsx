@@ -42,6 +42,16 @@ export const NavLink2Top: React.FC<NavLink2TopProps> = ({
 // 从这个文件开始创建 components
 // ============================
 
+const initNavItems = () => {
+  return {
+    top: [Channels.Home, Channels.Design, Channels.BrainWaves, Channels.About],
+
+    sec: [Channels.Contact, Channels.FAQ]
+  }
+}
+
+
+
 const [year, month, day] = [
   DateFormatter(GetTodayDateArray())[0],
   DateFormatter(GetTodayDateArray())[1],
@@ -51,7 +61,7 @@ const [year, month, day] = [
 function SecChannels() {
   return (
     <div className={styles["sec-channels"]}>
-      {[Channels.About, Channels.Contact, Channels.FAQ].map(
+      {initNavItems().sec.map(
         (channel: Channel, i: number) => (
           <React.Fragment key={`${channel}${i}`}>
             {i !== 0 ? "·" : ""}
@@ -65,6 +75,7 @@ function SecChannels() {
   );
 }
 
+
 export const Nav_Top: React.FC = () => {
   return (
     <nav className={styles["nav-top"]}>
@@ -77,12 +88,7 @@ export const Nav_Top: React.FC = () => {
         <SecChannels />
       </div>
       <div className={styles["channel-list"]}>
-        {[
-          Channels.Home,
-          Channels.Design,
-          Channels.BrainWaves,
-          Channels.Collections,
-        ].map((channel: Channel, i: number) => (
+        {initNavItems().top.map((channel: Channel, i: number) => (
           <NavLink2Top
             key={`${channel}${i}`}
             to={`/${channel.info.path}`}
@@ -110,12 +116,8 @@ export const Footer = () => {
 };
 
 
-
-export const Nav_Btn = () => {
-  const BtnNavPages = [
-    [Channels.Home, Channels.Design, Channels.BrainWaves, Channels.Collections],
-    [Channels.About, Channels.Contact, Channels.FAQ],
-  ];
+export const Nav_Btn:React.FC = () => {
+  const Items = [initNavItems().top, initNavItems().sec]
   return (
     <>
       <ToggleClassBtn className={styles["nav-btn"]} toggle={"open"}>
@@ -137,7 +139,7 @@ export const Nav_Btn = () => {
             </>
           </ToggleClassBtn>
           <nav className={styles["btn-nav"]}>
-            {BtnNavPages.map((group, i: number) => (
+            {Items.map((group, i: number) => (
               <React.Fragment key={`${group}${i}`}>
                 <div className={styles["group"]}>
                   {group.map((page, k: number) => (
@@ -150,7 +152,7 @@ export const Nav_Btn = () => {
                     </a>
                   ))}
                 </div>
-                {i + 1 !== BtnNavPages.length && (
+                {i + 1 !== Items.length && (
                   <div className={styles["hr"]}></div>
                 )}
               </React.Fragment>

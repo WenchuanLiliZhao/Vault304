@@ -1,14 +1,16 @@
 import { Post } from "../../../components/ObjectShapes/PageShapes";
 import Contributors_Wenchuan from "../../contributors/Wenchuan";
 
-const content = `
-aaa
+const content = [`
+In Morse-Kelley set theory, the definition of the **set of all natural numbers $\\mathbb{N}$** is derived from the axiom of infinity. This axiom ensures there exists a class $I$, which meets the following criteria:
 
-bbbb $x$
-$$
-x
-$$
-`;
+1. I $I$ is a set, $x$ x $X$ *X*
+2. $\\emptyset \\in I$, and
+3. If $x \\in I$, then $x \\cup \\{x\\} \\in I$.
+
+Such a set $I$ is called **inductive**. Although the axiom of infinity provides the foundation for constructing natural numbers, it does not render the axiom of union redundant; the latter is necessary within the broader framework of set and class operations in MK.
+`,
+];
 
 const NaturalNumbers: Post = {
   info: {

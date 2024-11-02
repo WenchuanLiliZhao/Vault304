@@ -28,12 +28,24 @@ export const Calendar: React.FC = () => {
   const daysInMonth = getDaysInMonth(currentYear, currentMonth);
   const firstDayOfMonth = getFirstDayOfMonth(currentYear, currentMonth);
 
+  // Get days from the previous month
+  const prevMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+  const prevYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+  const lastDayOfPrevMonth = getDaysInMonth(prevYear, prevMonth);
+
   // Generate days for the calendar
   const calendarDays = [];
-  for (let i = 0; i < firstDayOfMonth; i++) {
-    calendarDays.push(<td key={`empty-${i}`}></td>);
+  
+  // Fill in the last days of the previous month
+  for (let i = firstDayOfMonth - 1; i >= 0; i--) {
+    calendarDays.push(
+      <td key={`prev-${i}`} className="not-current-month">
+        {lastDayOfPrevMonth - i}
+      </td>
+    );
   }
 
+  // Fill in the current month days
   for (let day = 1; day <= daysInMonth; day++) {
     calendarDays.push(
       <td
@@ -45,6 +57,21 @@ export const Calendar: React.FC = () => {
     );
   }
 
+  // Calculate how many days required to fill the last week
+  const nextDaysStart = calendarDays.length % 7;
+  
+  // Fill in the first days of the next month
+  if (nextDaysStart !== 0) {
+    const nextFillDays = 7 - nextDaysStart;
+    for (let i = 1; i <= nextFillDays; i++) {
+      calendarDays.push(
+        <td key={`next-${i}`} className="not-current-month">
+          {i}
+        </td>
+      );
+    }
+  }
+  
   const weeks: JSX.Element[] = [];
   for (let i = 0; i < calendarDays.length; i += 7) {
     weeks.push(<tr key={i}>{calendarDays.slice(i, i + 7)}</tr>);
@@ -70,3 +97,4 @@ export const Calendar: React.FC = () => {
     </div>
   );
 };
+

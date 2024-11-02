@@ -128,7 +128,7 @@
       &.a {
         transform: translate(-50%, calc(-50% - 7px));
         .lineBg {
-          left: 0;
+          right: 0;
         }
       }
 
@@ -140,7 +140,7 @@
       &.d {
         transform: translate(-50%, calc(-50% + 7px));
         .lineBg {
-          right: 0;
+          left: 0;
         }
       }
     }

@@ -149,6 +149,10 @@
                 color: var(--color-sec);
               }
 
+              &.not-current-month {
+                color: var(--color-neg);
+              }
+
               &:first-of-type {
                 width: 20px;
               }

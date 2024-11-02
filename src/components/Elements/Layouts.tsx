@@ -43,7 +43,7 @@ const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
       ) : (
         ""
       )}
-      <article>
+      <article className={styles["article"]}>
         {typeof page.content === "string" && <MDBlock>{page.content}</MDBlock>}
         {typeof page.content === "object" && page.content}
         {Array.isArray(page.content) && (

@@ -1,7 +1,7 @@
 import { Channel } from "../../../components/ObjectShapes/PageShapes";
-import Tool_ImageDimensionChecker from "./Tools/ImageDimensionChecker";
+import Tool_ImageDimensionChecker from "../independent/tools/ImageDimensionChecker";
 
-const Tools: Channel = {
+const Playground: Channel = {
   info: {
     pageType: "channel",
     title: "MiniTools",
@@ -14,4 +14,4 @@ const Tools: Channel = {
   </>)
 }
 
-export default Tools
+export default Playground
