@@ -3,9 +3,16 @@
   font-size: 14px;
   display: flex;
   gap: 8px;
-  a:hover {
-    color: var(--color-sig) !important;
-  }
+
+  .sec-channel {
+    &:hover {
+      color: var(--color-sig) !important;
+    }
+
+    &[class~="active"] {
+      color: var(--color-sig) !important;
+    }
+  }  
 }
 
 .nav-top {

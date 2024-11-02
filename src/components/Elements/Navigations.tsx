@@ -65,9 +65,9 @@ function SecChannels() {
         (channel: Channel, i: number) => (
           <React.Fragment key={`${channel}${i}`}>
             {i !== 0 ? "·" : ""}
-            <a href={`/${channel.info.path}`} className={styles["sec-channel"]}>
+            <NavLink2Top to={`/${channel.info.path}`} className={styles["sec-channel"]}>
               {channel.info.title}
-            </a>
+            </NavLink2Top>
           </React.Fragment>
         )
       )}
