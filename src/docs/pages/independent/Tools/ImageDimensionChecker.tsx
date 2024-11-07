@@ -7,7 +7,7 @@ interface ImageMetadata {
   mimeType?: string;
 }
 
-const ImageDimensionChecker: React.FC = () => {
+const Tool_ImageDimensionChecker: React.FC = () => {
   const [imageUrl, setImageUrl] = useState<string>('');
   const [metadata, setMetadata] = useState<ImageMetadata | null>(null);
 
@@ -81,4 +81,4 @@ const ImageDimensionChecker: React.FC = () => {
   );
 };
 
-export default ImageDimensionChecker;
+export default Tool_ImageDimensionChecker;

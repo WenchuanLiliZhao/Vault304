@@ -1,5 +1,5 @@
 import { Channel } from "../../../components/ObjectShapes/PageShapes";
-import Tool_ImageDimensionChecker from "../independent/tools/ImageDimensionChecker";
+import Tool_ImageDimensionChecker from "../independent/Tools/ImageDimensionChecker";
 
 const Playground: Channel = {
   info: {
