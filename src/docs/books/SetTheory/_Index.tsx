@@ -26,7 +26,8 @@ const book: Book = {
   start_reading: NaturalNumbers,
   pages: {
     NaturalNumbers
-  }
+  },
+  toc: undefined
 }
 
 const Book_SetTheory = CreateBook(book)

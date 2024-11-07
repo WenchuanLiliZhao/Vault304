@@ -37,6 +37,32 @@ const book: Book = {
     PellentesqueDiam,
     AliquamEratVolutpat,
   },
+
+  toc: [
+    {
+      title: undefined,
+      sections: [
+        LoremIpsum,
+        PellentesqueDiam,
+      ]
+    },
+    {
+      title: "Section 1",
+      sections: [
+        LoremIpsum,
+        PellentesqueDiam,
+      ]
+    },
+
+    {
+      title: "Section 2",
+      sections: [
+        LoremIpsum,
+        PellentesqueDiam,
+        AliquamEratVolutpat,
+      ]
+    },
+  ]
 }
 
 const Book_LoremIpsum = CreateBook(book);

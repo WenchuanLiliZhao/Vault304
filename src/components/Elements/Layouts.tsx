@@ -1,10 +1,9 @@
 // const PageBody: React.FC<Props> = ({ children }) =>
 
 import React from "react";
-import { Book, Channel, Post } from "../ObjectShapes/PageShapes";
+import { Book, Channel, Chapter, Post } from "../ObjectShapes/PageShapes";
 import styles from "./Layouts.module.scss";
-import { MapBookToc } from "../Functions/BookHandling";
-import { Footer, Nav_Btn, Nav_Top } from "./Navigations";
+import { Footer, Nav_Btn, Nav_Top, NavLink2Top } from "./Navigations";
 import { PageHeader_Channel } from "./PageHeaders";
 import { MDBlock } from "../Functions/Markdown";
 
@@ -33,12 +32,26 @@ interface PropsArticle {
 }
 
 const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
-  console.log(page);
   return (
     <>
-      {book.status == "published" ? (
+      {book.toc !== undefined ? (
         <aside>
-          <MapBookToc book={book} />
+          {book.toc !== undefined &&
+            book.toc.map((chapter: Chapter, i: number) => (
+              <div key={`${chapter}${i}`}>
+                {chapter.title}
+                <div>
+                  {chapter.sections.map((section: Post, k: number) => (
+                    <NavLink2Top
+                      key={`${section}${k}`}
+                      to={`/${section.info.path}`}
+                    >
+                      {section.info.title}
+                    </NavLink2Top>
+                  ))}
+                </div>
+              </div>
+            ))}
         </aside>
       ) : (
         ""

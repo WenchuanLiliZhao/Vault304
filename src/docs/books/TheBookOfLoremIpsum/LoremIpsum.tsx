@@ -33,7 +33,7 @@ const LoremIpsum: Post = {
     tags: ["UI/UX design", "Loren Ipsum"],
     theme: undefined,
   },
-  content: (
+  content: [
     <>
       <h1>Lorem Ipsum!</h1>
 
@@ -96,7 +96,7 @@ const LoremIpsum: Post = {
         Aenean eu mi rutrum, lobortis neque scelerisque, commodo velit.
       </p>
     </>
-  ),
+  ],
 };
 
 export default LoremIpsum;

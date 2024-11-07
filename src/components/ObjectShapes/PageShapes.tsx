@@ -60,8 +60,13 @@ export interface Post extends Page {
 interface BookCoverInfo extends Omit<PostInfo, 'pageType'> {
   pageType: "book cover";
 }
-interface BookCover extends Omit<Post, 'info'> {
+export interface BookCover extends Omit<Post, 'info'> {
   info: BookCoverInfo;
+}
+
+export type Chapter = {
+  title: undefined | string,
+  sections: Post[],
 }
 
 export interface Book {
@@ -69,5 +74,7 @@ export interface Book {
   status: "" | "published";
   start_reading?: Post;
   pages: { [key: string]: Post; };
+  toc :
+    | undefined
+    | Chapter[];
 }
-;

@@ -9,11 +9,15 @@ import {
   Layout_Channel,
 } from "./components/Elements/Layouts";
 import Home from "./docs/pages/channels/Home";
-import { AnyPage, Book, Channel, Post } from "./components/ObjectShapes/PageShapes";
+import {
+  AnyPage,
+  Book,
+  Channel,
+  Post,
+} from "./components/ObjectShapes/PageShapes";
 import IndePages from "./docs/pages/independent/_Toc";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
@@ -41,14 +45,10 @@ function App() {
 
           {Object.values(Books).map((book: Book, i: number) => (
             <React.Fragment key={`${book}${i}`}>
-              {book.status == "published" ? (
-                <Route
-                  path={`/${book.cover.info.path}`}
-                  element={<Layout_BookCover book={book} />}
-                />
-              ) : (
-                ""
-              )}
+              <Route
+                path={`/${book.cover.info.path}`}
+                element={<Layout_BookCover book={book} />}
+              />
 
               {Object.values(book.pages).map((page: Post, k: number) => (
                 <Route
