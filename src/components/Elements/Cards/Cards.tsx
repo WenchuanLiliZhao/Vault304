@@ -8,7 +8,7 @@ interface PropsCard {
 }
 
 export const BookCard_Normal: React.FC<PropsCard> = ({ book }) => {
-  const tocArray = Object.values(book.toc);
+  const tocArray = Object.values(book.pages);
 
   // Declare firstChapter before the conditional block
   let firstChapter;
@@ -32,7 +32,7 @@ export const BookCard_Headline: React.FC<PropsHeadline> = ({ book, show }) => {
   let post;
 
   if (show === "latest") {
-    post = postFilter(Object.values(book.toc), "date")[0];
+    post = postFilter(Object.values(book.pages), "date")[0];
   } else {
     post = show;
   }

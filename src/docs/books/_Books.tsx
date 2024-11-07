@@ -7,8 +7,8 @@ const Books = {
   Book_SetTheory,
 }
 
-const BookTocToArray = (books: Record<string, { toc: Record<string, Post> }>): Post[] => {
-  return Object.values(books).flatMap(book => Object.values(book.toc));
+const BookTocToArray = (books: Record<string, { pages: Record<string, Post> }>): Post[] => {
+  return Object.values(books).flatMap(book => Object.values(book.pages));
 };
 
 // Usage

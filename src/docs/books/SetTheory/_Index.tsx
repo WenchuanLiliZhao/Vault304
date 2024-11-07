@@ -24,7 +24,7 @@ const book: Book = {
   },
   status: "",
   start_reading: NaturalNumbers,
-  toc: {
+  pages: {
     NaturalNumbers
   }
 }

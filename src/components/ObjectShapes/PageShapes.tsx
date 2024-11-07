@@ -68,6 +68,6 @@ export interface Book {
   cover: BookCover;
   status: "" | "published";
   start_reading?: Post;
-  toc: { [key: string]: Post; };
+  pages: { [key: string]: Post; };
 }
 ;

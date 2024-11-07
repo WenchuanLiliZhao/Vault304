@@ -50,7 +50,7 @@ function App() {
                 ""
               )}
 
-              {Object.values(book.toc).map((page: Post, k: number) => (
+              {Object.values(book.pages).map((page: Post, k: number) => (
                 <Route
                   key={`${page}${k}`}
                   path={`/${page.info.path}`}

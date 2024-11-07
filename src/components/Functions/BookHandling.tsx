@@ -10,19 +10,19 @@ type CorrectedBook = {
   cover: Book["cover"];
   status: Book["status"]; // 使用 Book['statues'] 但在生成时还原为 status
   start_reading?: Book["start_reading"];
-  toc: Book["toc"];
+  pages: Book["pages"];
 };
 
 // 实现 BookA 和 BookParams，使其关联到 CorrectedBook
 
 type BookA<T extends Record<string, Post>> = CorrectedBook & {
   start_reading?: Book["start_reading"];
-  toc: T;
+  pages: T;
 };
 
 type BookParams<T extends Record<string, Post>> = CorrectedBook & {
   start_reading?: Book["start_reading"];
-  toc: T;
+  pages: T;
 };
 
 // 创建一个生成 Book 对象的函数
@@ -30,10 +30,10 @@ export function CreateBook<T extends Record<string, Post>>({
   cover,
   status,
   start_reading,
-  toc,
+  pages: pages,
 }: BookParams<T>): BookA<T> {
   // Extract all dates from pages
-  const dates: [number, number, number][] = Object.values(toc).map(
+  const dates: [number, number, number][] = Object.values(pages).map(
     (page) => page.info.latest_update
   );
 
@@ -49,11 +49,11 @@ export function CreateBook<T extends Record<string, Post>>({
   cover.info.latest_update = mostRecentDate;
 
   // 这个地方，所有的 path 会被重新整理
-  Object.values(toc).forEach((page) => {
+  Object.values(pages).forEach((page) => {
     page.info.path = `${cover.info.path}/${page.info.path}`;
   });
 
-  return { cover, status, start_reading, toc };
+  return { cover, status, start_reading, pages };
 }
 
 // ========================
@@ -66,7 +66,7 @@ interface MapBookTocProps {
 export const MapBookToc: React.FC<MapBookTocProps> = ({ book }) => {
   return (
     <ul>
-      {Object.values(book.toc).map((item: Post, i: number) => (
+      {Object.values(book.pages).map((item: Post, i: number) => (
         <li key={`${item}${i}`}>
           {item.info.pageType == "post" ? (
             <>
