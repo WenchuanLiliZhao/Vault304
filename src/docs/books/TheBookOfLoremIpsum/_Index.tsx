@@ -28,8 +28,6 @@ const book: Book = {
       </>
     ),
   },
-  
-  status: "published",
   start_reading: PellentesqueDiam,
 
   pages: {

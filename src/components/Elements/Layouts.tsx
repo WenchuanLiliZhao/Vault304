@@ -77,7 +77,7 @@ interface PropsBookCover {
 }
 
 const Layout_BookCover: React.FC<PropsBookCover> = ({ book }) => {
-  return <>{book.status == "published" ? <>{book.cover.info.title}</> : ""}</>;
+  return <>{book.cover.info.title}</>;
 };
 
 export { Layout_Channel, Layout_Article, Layout_BookCover };

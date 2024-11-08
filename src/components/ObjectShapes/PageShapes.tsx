@@ -71,7 +71,6 @@ export type Chapter = {
 
 export interface Book {
   cover: BookCover;
-  status: "" | "published";
   start_reading?: Post;
   pages: { [key: string]: Post; };
   toc :

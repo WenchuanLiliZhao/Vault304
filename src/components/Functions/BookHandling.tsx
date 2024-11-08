@@ -7,7 +7,6 @@ import { Book, Post } from "../ObjectShapes/PageShapes";
 // 定义辅助类型来从 Book 中提取字段并校正拼写错误
 type CorrectedBook = {
   cover: Book["cover"];
-  status: Book["status"];
   start_reading?: Book["start_reading"];
   pages: Book["pages"];
   toc: Book["toc"];
@@ -26,7 +25,6 @@ type BookParams<T extends Record<string, Post>> = CorrectedBook & {
 // 创建一个生成 Book 对象的函数
 export function CreateBook<T extends Record<string, Post>>({
   cover,
-  status,
   start_reading,
   pages,
   toc,
@@ -52,5 +50,5 @@ export function CreateBook<T extends Record<string, Post>>({
     page.info.path = `${cover.info.path}/${page.info.path}`;
   });
 
-  return { cover, status, start_reading, pages, toc };
+  return { cover, start_reading, pages, toc };
 }
