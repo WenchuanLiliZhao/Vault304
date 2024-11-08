@@ -7,7 +7,6 @@ const book: Book = {
     info: {
       title: "Notes for Set Theory",
       path: "Notes for Set Theory",
-      pageType: "book cover",
       summary: "",
       latest_update: [1, 1, 1],
       cover: {

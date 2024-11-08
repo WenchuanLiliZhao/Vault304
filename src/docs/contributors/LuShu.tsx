@@ -4,7 +4,6 @@ const Contributors_LuShu: Post = {
   info: {
     title: "LU Shu",
     path: "",
-    pageType: "post",
     summary: "",
     latest_update: [2024, 9, 28],
     cover: {

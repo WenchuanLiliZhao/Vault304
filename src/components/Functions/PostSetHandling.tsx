@@ -1,12 +1,12 @@
 import { Post } from "../ObjectShapes/PageShapes";
 import { Label } from "../ObjectShapes/Strings";
 
-type PostMap = Post[];
+type PostArray = Post[];
+
 export type SortBy = "date" | "a-z" | "z-a" | "title-length";
 
-export function postFilter(channels: PostMap, sortBy: SortBy): Post[] {
-  // First filter to include only posts with pageType "post"
-  const postList = channels.filter((post) => post.info.pageType === "post");
+export function postFilter(posts: PostArray, sortBy: SortBy): Post[] {
+  const postList = posts
 
   // Sort based on the specified criteria
   switch (sortBy) {

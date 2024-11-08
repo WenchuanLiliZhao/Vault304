@@ -14,7 +14,6 @@ interface PageInfo {
   title: string;
   path: string;
   summary: string;
-  pageType: string;
 }
 
 export interface Page {
@@ -23,7 +22,6 @@ export interface Page {
 }
 
 interface ChannelInfo extends PageInfo {
-  pageType: "channel";
   title_display?: string | JSX.Element;
 }
 
@@ -37,7 +35,6 @@ export interface Author {
   role: AuthorRole;
 }
 export interface PostInfo extends PageInfo {
-  pageType: "post";
   latest_update: [number, number, number];
   cover: {
     url: string;
@@ -57,8 +54,12 @@ export interface Post extends Page {
 
   content: (string | JSX.Element)[] | JSX.Element | string;
 }
-interface BookCoverInfo extends Omit<PostInfo, 'pageType'> {
-  pageType: "book cover";
+
+interface BookCoverInfo extends PostInfo {
+  exlibris?: {
+    url: string
+    caption: string
+  }
 }
 export interface BookCover extends Omit<Post, 'info'> {
   info: BookCoverInfo;

@@ -3,7 +3,6 @@ import Tool_ImageDimensionChecker from "../independent/Tools/ImageDimensionCheck
 
 const Playground: Channel = {
   info: {
-    pageType: "channel",
     title: "MiniTools",
     path: "tools",
     summary: "",

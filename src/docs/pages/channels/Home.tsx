@@ -7,7 +7,6 @@ import Book_LoremIpsum from "../../books/TheBookOfLoremIpsum/_Index";
 
 const Home: Channel = {
   info: {
-    pageType: "channel",
     title: "Home",
     title_display: SiteInfo.title,
     path: "",
