@@ -14,12 +14,12 @@ const book: Book = {
       tags: [],
       title: "Learning Notes for Front-end Development",
       path: "/learning-notes-for-front-end-development",
-      summary: "aaa"
+      summary: "aaa",
     },
     content: []
   },
+  loadToc: false,
   pages: {},
-  toc: undefined
 }
 
 const Book_FrontEnd = CreateBook(book)

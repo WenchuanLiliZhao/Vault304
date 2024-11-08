@@ -9,8 +9,7 @@ const book: Book = {
     info: {
       title: "The Book of Lorem Ipsum",
       path: "The Book of Lorem Ipsum",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis enim sit amet metus venenatis finibus. Etiam orci nulla, imperdiet ut fringilla at, suscipit id mi. Suspendisse potenti. Fusce congue enim augue, nec cursus ex efficitur in. Cras tempus tempus ex ut lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris imperdiet fermentum libero non dictum.",
+      summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis enim sit amet metus venenatis finibus. Etiam orci nulla, imperdiet ut fringilla at, suscipit id mi. Suspendisse potenti. Fusce congue enim augue, nec cursus ex efficitur in. Cras tempus tempus ex ut lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris imperdiet fermentum libero non dictum.",
       cover: {
         url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Anna_Fernqvist%2C_rollportr%C3%A4tt_-_SMV_-_H1_122_-_Restoration.jpg",
         caption: undefined,
@@ -26,7 +25,7 @@ const book: Book = {
       </>
     ],
   },
-  
+  loadToc: true,
   start_reading: PellentesqueDiam,
 
   pages: {
@@ -34,32 +33,6 @@ const book: Book = {
     PellentesqueDiam,
     AliquamEratVolutpat,
   },
-
-  toc: [
-    {
-      title: undefined,
-      sections: [
-        LoremIpsum,
-        PellentesqueDiam,
-      ]
-    },
-    {
-      title: "Section 1",
-      sections: [
-        LoremIpsum,
-        PellentesqueDiam,
-      ]
-    },
-
-    {
-      title: "Section 2",
-      sections: [
-        LoremIpsum,
-        PellentesqueDiam,
-        AliquamEratVolutpat,
-      ]
-    },
-  ]
 }
 
 const Book_LoremIpsum = CreateBook(book);

@@ -9,7 +9,7 @@ type CorrectedBook = {
   cover: Book["cover"];
   start_reading?: Book["start_reading"];
   pages: Book["pages"];
-  toc: Book["toc"];
+  loadToc: Book["loadToc"];
 };
 
 type BookA<T extends Record<string, Post>> = CorrectedBook & {
@@ -27,7 +27,7 @@ export function CreateBook<T extends Record<string, Post>>({
   cover,
   start_reading,
   pages,
-  toc,
+  loadToc,
 }: BookParams<T>): BookA<T> {
   // Extract all dates from pages
   const dates: [number, number, number][] = Object.values(pages).map(
@@ -50,5 +50,5 @@ export function CreateBook<T extends Record<string, Post>>({
     page.info.path = `${cover.info.path}/${page.info.path}`;
   });
 
-  return { cover, start_reading, pages, toc };
+  return { cover, start_reading, pages, loadToc };
 }

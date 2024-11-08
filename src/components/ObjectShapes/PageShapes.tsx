@@ -55,10 +55,6 @@ export interface Post extends Page {
 
 interface BookCoverInfo extends Omit<PostInfo, 'latest_update'> {
   latest_update?: [number, number, number]
-  exlibris?: {
-    url: string
-    caption: string
-  }
 }
 export interface BookCover extends Omit<Post, 'info'> {
   info: BookCoverInfo;
@@ -72,8 +68,6 @@ export type Chapter = {
 export interface Book {
   cover: BookCover;
   start_reading?: Post;
+  loadToc: boolean
   pages: { [key: string]: Post; };
-  toc :
-    | undefined
-    | Chapter[];
 }

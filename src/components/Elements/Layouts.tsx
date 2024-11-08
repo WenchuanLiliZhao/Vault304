@@ -1,7 +1,7 @@
 // const PageBody: React.FC<Props> = ({ children }) =>
 
 import React from "react";
-import { Book, Channel, Chapter, Post } from "../ObjectShapes/PageShapes";
+import { Book, Channel, Post } from "../ObjectShapes/PageShapes";
 import styles from "./Layouts.module.scss";
 import { Footer, Nav_Btn, Nav_Top, NavLink2Top } from "./Navigations";
 import { PageHeader_Channel } from "./PageHeaders";
@@ -34,27 +34,18 @@ interface PropsArticle {
 const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
   return (
     <>
-      {book.toc !== undefined ? (
+      {book.loadToc && (
         <aside>
-          {book.toc !== undefined &&
-            book.toc.map((chapter: Chapter, i: number) => (
-              <div key={`${chapter}${i}`}>
-                {chapter.title}
-                <div>
-                  {chapter.sections.map((section: Post, k: number) => (
-                    <NavLink2Top
-                      key={`${section}${k}`}
-                      to={`/${section.info.path}`}
-                    >
-                      {section.info.title}
-                    </NavLink2Top>
-                  ))}
-                </div>
-              </div>
+          <ul>
+            {Object.values(book.pages).map((page: Post, i: number) => (
+              <li key={`${page}${i}`}>
+                <NavLink2Top to={`${page.info.path}`}>
+                  {page.info.title}
+                </NavLink2Top>
+              </li>
             ))}
+          </ul>
         </aside>
-      ) : (
-        ""
       )}
       <article className={styles["article"]}>
         {Array.isArray(page.content) && (

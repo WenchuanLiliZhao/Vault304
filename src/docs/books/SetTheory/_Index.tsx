@@ -16,15 +16,15 @@ const book: Book = {
       label: "mathematics",
       tags: [],
       theme: undefined,
-      sidebar: undefined
+      sidebar: undefined,
     },
     content: []
   },
+  loadToc: false,
   start_reading: NaturalNumbers,
   pages: {
     NaturalNumbers
   },
-  toc: undefined
 }
 
 const Book_SetTheory = CreateBook(book)
