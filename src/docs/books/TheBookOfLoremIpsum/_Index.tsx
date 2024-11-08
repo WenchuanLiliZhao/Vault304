@@ -28,6 +28,7 @@ const book: Book = {
       </>
     ),
   },
+  
   start_reading: PellentesqueDiam,
 
   pages: {
