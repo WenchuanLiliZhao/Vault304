@@ -13,7 +13,7 @@ const BrainWaves: Channel = {
       "Vivamus nunc felis, interdum sed accumsan at, finibus et dui. Aenean sed massa dictum, condimentum felis sit amet, suscipit felis. Donec a tempor enim. In ut orci sit amet lacus bibendum convallis. Sed ac placerat orci. Duis orci diam, eleifend sit amet imperdiet ac, hendrerit sit amet mauris.",
   },
 
-  content: (
+  content: [(
     <>
       <PostCardList
         array={filterPosts(BookPagesArray, Labels_BrainWave)}
@@ -22,7 +22,7 @@ const BrainWaves: Channel = {
         loadCount={undefined}
       />
     </>
-  ),
+  )],
 };
 
 export default BrainWaves;

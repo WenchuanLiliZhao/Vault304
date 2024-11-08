@@ -8,9 +8,9 @@ const Playground: Channel = {
     summary: "",
   },
 
-  content: (<>
+  content: [(<>
     <Tool_ImageDimensionChecker />
-  </>)
+  </>)]
 }
 
 export default Playground

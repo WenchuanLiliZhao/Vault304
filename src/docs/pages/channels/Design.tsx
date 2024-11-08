@@ -15,7 +15,7 @@ const Design: Channel = {
 
   headline: undefined,
 
-  content: (
+  content: [(
     <>
       <PostCardList
         array={filterPosts(BookPagesArray, Labels_Design)}
@@ -24,7 +24,7 @@ const Design: Channel = {
         loadCount={undefined}
       />
     </>
-  ),
+  )],
 };
 
 export default Design;

@@ -16,7 +16,7 @@ const Contributors_LuShu: Post = {
     theme: undefined,
     sidebar: undefined,
   },
-  content: (<></>)
+  content: []
 }
 
 export default Contributors_LuShu

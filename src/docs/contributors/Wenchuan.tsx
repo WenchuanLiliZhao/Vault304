@@ -16,7 +16,7 @@ const Contributors_Wenchuan: Post = {
     theme: undefined,
     sidebar: undefined,
   },
-  content: (<></>)
+  content: []
 }
 
 export default Contributors_Wenchuan

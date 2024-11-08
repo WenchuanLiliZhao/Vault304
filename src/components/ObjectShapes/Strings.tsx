@@ -1,7 +1,8 @@
 export const Labels_BrainWave = {
   mathematics: "mathematics",
   philosophy: "philosophy",
-  readingNotes: "reading nots"
+  readingNotes: "reading notes",
+  development: "development",
 } as const;
 
 export const Labels_Person = {
@@ -15,6 +16,12 @@ export const Labels_Design = {
   graphicDesign: "graphic design",
   illustration: "illustration"
 } as const;
+
+export const Labels = {
+  ...Labels_BrainWave,
+  ...Labels_Person,
+  ...Labels_Design,
+}
 
 // You can then define Label type as a union of all values
 export type Label = 

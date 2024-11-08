@@ -18,7 +18,7 @@ interface PageInfo {
 
 export interface Page {
   info: PageInfo;
-  content: JSX.Element | string | (JSX.Element | string)[];
+  content: (JSX.Element | string)[];
 }
 
 interface ChannelInfo extends PageInfo {
@@ -51,11 +51,10 @@ export interface PostInfo extends PageInfo {
 
 export interface Post extends Page {
   info: PostInfo;
-
-  content: (string | JSX.Element)[] | JSX.Element | string;
 }
 
-interface BookCoverInfo extends PostInfo {
+interface BookCoverInfo extends Omit<PostInfo, 'latest_update'> {
+  latest_update?: [number, number, number]
   exlibris?: {
     url: string
     caption: string

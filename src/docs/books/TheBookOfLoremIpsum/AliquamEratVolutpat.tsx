@@ -27,7 +27,7 @@ const AliquamEratVolutpat: Post = {
     tags: ["UI/UX design", "Loren Ipsum"],
     theme: undefined,
   },
-  content: (<></>),
+  content: [],
 };
 
 AliquamEratVolutpat.content = [

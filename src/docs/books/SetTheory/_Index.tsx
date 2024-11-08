@@ -8,7 +8,6 @@ const book: Book = {
       title: "Notes for Set Theory",
       path: "Notes for Set Theory",
       summary: "",
-      latest_update: [1, 1, 1],
       cover: {
         url: "",
         caption: undefined
@@ -19,7 +18,7 @@ const book: Book = {
       theme: undefined,
       sidebar: undefined
     },
-    content: (<>sss</>)
+    content: []
   },
   start_reading: NaturalNumbers,
   pages: {
