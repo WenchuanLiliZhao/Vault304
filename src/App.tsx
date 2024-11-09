@@ -7,7 +7,7 @@ import {
   Layout_Article,
   Layout_BookCover,
   Layout_Channel,
-} from "./components/Elements/Layouts";
+} from "./components/Layouts/Layouts";
 import Home from "./docs/pages/channels/Home";
 import {
   AnyPage,

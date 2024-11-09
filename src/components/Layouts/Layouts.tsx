@@ -3,9 +3,10 @@
 import React from "react";
 import { Book, Channel, Post } from "../ObjectShapes/PageShapes";
 import styles from "./Layouts.module.scss";
-import { Footer, Nav_Btn, Nav_Top, NavLink2Top } from "./Navigations";
-import { PageHeader_Channel } from "./PageHeaders";
-import { MDBlock } from "../Functions/Markdown";
+import { Footer, Nav_Btn, Nav_Top, NavLink2Top } from "../Elements/Navigations";
+import { PageHeader_Channel } from "../Elements/PageHeaders";
+import { ContentMapping } from "./LayoutFunctions";
+
 
 interface PropsChannel {
   channel: Channel;
@@ -18,7 +19,9 @@ const Layout_Channel: React.FC<PropsChannel> = ({ channel }) => {
         <Nav_Top />
         <PageHeader_Channel channel={channel} />
         {channel.headline !== undefined ? channel.headline : null}
-        <main className={`${styles.main}`}>{channel.content}</main>
+        <main className={`${styles.main}`}>
+          <ContentMapping content={channel.content} />
+        </main>
         <Footer />
       </div>
       <Nav_Btn />
@@ -49,14 +52,7 @@ const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
       )}
       <article className={styles["article"]}>
         {Array.isArray(page.content) && (
-          <>
-            {page.content.map((item, i: number) => (
-              <React.Fragment key={`${item}${i}`}>
-                {typeof item === "string" && <MDBlock>{item}</MDBlock>}
-                {typeof item === "object" && item}
-              </React.Fragment>
-            ))}
-          </>
+          <ContentMapping content={page.content} />
         )}
       </article>
     </>
