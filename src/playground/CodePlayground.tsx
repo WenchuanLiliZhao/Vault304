@@ -1,6 +1,13 @@
-import React, { useState, useRef } from 'react';
+import { FC, useRef, useState } from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+import { html as htmlLang } from '@codemirror/lang-html';
+import { css as cssLang } from '@codemirror/lang-css';
+import { javascript as jsLang } from '@codemirror/lang-javascript';
+import { autocompletion } from '@codemirror/autocomplete';
+import { oneDark } from '@codemirror/theme-one-dark';
+import { EditorView } from '@codemirror/view';
 
-export const CodePlayground: React.FC = () => {
+export const CodePlayground: FC = () => {
   const [html, setHtml] = useState<string>(`<!DOCTYPE html>
 <html>
   <body>
@@ -43,40 +50,46 @@ p {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div>
       <h1>Simple Coding Playground</h1>
-      
-      <div style={{ display: 'flex', flexDirection: 'row', margin: '10px 0' }}>
-        <textarea 
-          value={html} 
-          onChange={(e) => setHtml(e.target.value)} 
-          placeholder="Write HTML here..." 
-          style={{ height: '200px', width: '300px', marginRight: '10px', fontFamily: 'monospace', resize: 'none' }}
+
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <CodeMirror
+          value={html}
+          onChange={(value) => setHtml(value)}
+          extensions={[htmlLang(), autocompletion(), EditorView.lineWrapping]}
+          placeholder="Write HTML here..."
+          height="240px"
+          style={{ width: '100%', marginBottom: '10px' }}
+          theme={oneDark}
         />
-        <textarea 
-          value={css} 
-          onChange={(e) => setCss(e.target.value)} 
-          placeholder="Write CSS here..." 
-          style={{ height: '200px', width: '300px', marginRight: '10px', fontFamily: 'monospace', resize: 'none' }}
+        <CodeMirror
+          value={css}
+          onChange={(value) => setCss(value)}
+          extensions={[cssLang(), autocompletion(), EditorView.lineWrapping]}
+          placeholder="Write CSS here..."
+          height="200px"
+          style={{ width: '100%', marginBottom: '10px' }}
+          theme={oneDark}
         />
-        <textarea 
-          value={js} 
-          onChange={(e) => setJs(e.target.value)} 
-          placeholder="Write JavaScript here..." 
-          style={{ height: '200px', width: '300px', fontFamily: 'monospace', resize: 'none' }}
+        <CodeMirror
+          value={js}
+          onChange={(value) => setJs(value)}
+          extensions={[jsLang(), autocompletion(), EditorView.lineWrapping]}
+          placeholder="Write JavaScript here..."
+          height="200px"
+          style={{ width: '100%', marginBottom: '10px' }}
+          theme={oneDark}
         />
       </div>
-      
-      <button 
-        onClick={runCode} 
-        style={{ padding: '10px 20px', marginTop: '10px', cursor: 'pointer' }}
-      >
+
+      <button onClick={runCode} style={{ margin: '10px', padding: '5px 10px' }}>
         Run Code
       </button>
-      
-      <iframe 
-        ref={iframeRef} 
-        style={{ width: '100%', height: '300px', border: '1px solid #ccc', marginTop: '20px' }}
+
+      <iframe
+        ref={iframeRef}
+        style={{ width: '100%', height: '400px', border: '1px solid #ddd' }}
       />
     </div>
   );
