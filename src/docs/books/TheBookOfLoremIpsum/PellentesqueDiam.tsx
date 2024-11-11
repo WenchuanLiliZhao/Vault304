@@ -7,6 +7,7 @@ const PellentesqueDiam: Post = {
     path: "PellentesqueDiam",
     summary: "Vivamus nunc felis, interdum sed accumsan at, finibus et dui. Aenean sed massa dictum, condimentum felis sit amet, suscipit felis. Donec a tempor enim. In ut orci sit amet lacus bibendum convallis. Sed ac placerat orci. Duis orci diam, eleifend sit amet imperdiet ac, hendrerit sit amet mauris.",
     latest_update: [2024, 10, 28],
+    location: "Shanghai",
     cover: {
       url: "https://upload.wikimedia.org/wikipedia/commons/1/17/2024_CIMSS_22W_Twentytwo_visible_infrared_satellite_loop.gif",
       caption: undefined,

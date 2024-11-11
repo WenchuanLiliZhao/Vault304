@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { html as htmlLang } from '@codemirror/lang-html';
 import { css as cssLang } from '@codemirror/lang-css';
@@ -7,31 +7,20 @@ import { autocompletion } from '@codemirror/autocomplete';
 import { oneDark } from '@codemirror/theme-one-dark';
 import { EditorView } from '@codemirror/view';
 
-export const CodePlayground: FC = () => {
-  const [html, setHtml] = useState<string>(`<!DOCTYPE html>
-<html>
-  <body>
-    <h1>Hello World</h1>
-    <p>This is a simple coding playground.</p>
-  </body>
-</html>`);
-
-  const [css, setCss] = useState<string>(`body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+interface HTMLPlaygroundProps {
+  input: {
+    html: string
+    css: string
+    js: string
+  }
 }
 
-h1 {
-  color: #4CAF50;
-}
+export const HTMLPlayground: React.FC<HTMLPlaygroundProps> = ({input}) => {
+  const [html, setHtml] = useState<string>(input.html);
 
-p {
-  color: #555;
-}`);
+  const [css, setCss] = useState<string>(input.css);
 
-  const [js, setJs] = useState<string>(`document.querySelector('h1').onclick = function() {
-  alert('Hello, World!');
-};`);
+  const [js, setJs] = useState<string>(input.js);
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
 

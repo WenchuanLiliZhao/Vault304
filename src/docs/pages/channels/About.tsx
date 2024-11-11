@@ -1,6 +1,7 @@
 // About.tsx
 
 import { Channel } from "../../../components/ObjectShapes/PageShapes"
+import { GoBackButton } from "../../../components/Elements/Buttons"
 
 const About: Channel = {
   info: {
@@ -10,6 +11,7 @@ const About: Channel = {
   },
 
   content: [(<>
+    <GoBackButton />
     <h1>This is About</h1>
   </>)]
 }

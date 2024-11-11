@@ -1,6 +1,6 @@
 import { Label } from "./Strings";
 
-export type AnyPage = Page | Channel | Post | BookCover
+export type AnyPage = Page | Channel | Post | BookCover;
 
 export const AuthorRoles = [
   "",
@@ -30,12 +30,21 @@ export interface Channel extends Page {
   headline?: JSX.Element;
 }
 
+export interface Person extends Omit<Post, "info"> {
+  info: PersonInfo;
+}
+
+export interface Post extends Page {
+  info: PostInfo;
+}
+
 export interface Author {
-  data: Post;
+  data: Person;
   role: AuthorRole;
 }
 export interface PostInfo extends PageInfo {
   latest_update: [number, number, number];
+  location?: string;
   cover: {
     url: string;
     caption?: string;
@@ -45,29 +54,28 @@ export interface PostInfo extends PageInfo {
   label: Label;
   tags: string[];
 
-  theme?: { [key: string]: string; };
+  theme?: { [key: string]: string };
   sidebar?: JSX.Element;
 }
 
-export interface Post extends Page {
-  info: PostInfo;
-}
+export type PersonInfo = Omit<PostInfo, "location">;
 
-interface BookCoverInfo extends Omit<PostInfo, 'latest_update'> {
-  latest_update?: [number, number, number]
+interface BookCoverInfo extends Omit<PostInfo, "latest_update" | "location"> {
+  latest_update?: [number, number, number];
+  location?: string;
 }
-export interface BookCover extends Omit<Post, 'info'> {
+export interface BookCover extends Omit<Post, "info"> {
   info: BookCoverInfo;
 }
 
 export type Chapter = {
-  title: undefined | string,
-  sections: Post[],
-}
+  title: undefined | string;
+  sections: Post[];
+};
 
 export interface Book {
   cover: BookCover;
   start_reading?: Post;
-  loadToc: boolean
-  pages: { [key: string]: Post; };
+  loadToc: boolean;
+  pages: { [key: string]: Post };
 }

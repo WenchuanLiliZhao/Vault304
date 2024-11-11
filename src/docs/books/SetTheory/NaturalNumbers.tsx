@@ -1,7 +1,8 @@
 import { Post } from "../../../components/ObjectShapes/PageShapes";
 import Contributors_Wenchuan from "../../contributors/Wenchuan";
 
-const content = [`
+const content = [
+  `
 In Morse-Kelley set theory, the definition of the **set of all natural numbers $\\mathbb{N}$** is derived from the axiom of infinity. This axiom ensures there exists a class $I$, which meets the following criteria:
 
 1. I $I$ is a set, $x$ x $X$ *X*
@@ -19,6 +20,7 @@ const NaturalNumbers: Post = {
     summary:
       "Sed nunc mi, dictum et luctus sed, tristique sed odio. Nullam vitae turpis a ligula tincidunt semper vitae id felis. Suspendisse blandit",
     latest_update: [2025, 9, 28],
+    location: "Shanghai",
     cover: {
       url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Anna_Fernqvist%2C_rollportr%C3%A4tt_-_SMV_-_H1_122_-_Restoration.jpg",
       caption: undefined,

@@ -1,10 +1,10 @@
 import styles from "./Img.module.scss";
 import React, { useState, useEffect } from 'react';
 
-interface ImgProps {
+export interface ImgProps {
   src: string;
   ratio?: [number, number];  // Making ratio optional
-  alt: string;
+  alt?: string;
   className?: string;
 }
 

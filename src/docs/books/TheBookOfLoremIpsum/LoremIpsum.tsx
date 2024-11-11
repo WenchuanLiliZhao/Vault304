@@ -1,13 +1,14 @@
-import { Img } from "../../../components/Elements/InLine/Img";
+import { Figure } from "../../../components/Layouts/MDElements";
 import { Post } from "../../../components/ObjectShapes/PageShapes";
 import Authors from "../../contributors/_Contributors";
 
 const LoremIpsum: Post = {
   info: {
-    title: "Lorem Ipsum!",
+    title: "Lorem ipsum dolor sit",
     path: "Lorem Ipsum",
     summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     latest_update: [2024, 10, 25],
+    location: "Shanghai",
     cover: {
       url: "https://doodleipsum.com/700/flat?bg=7463D9&i=9bd6f51bc3c56b8a782c5bb8ed83d90f",
       caption: `By [Doodle Ipsum](https://doodleipsum.com/)`,
@@ -34,9 +35,23 @@ const LoremIpsum: Post = {
   },
   content: [
     <>
-      <h1>Lorem Ipsum!</h1>
+      {/* <h2>Basic Components</h2>
 
-      <Img src={"https://upload.wikimedia.org/wikipedia/commons/8/87/1581_Bunting_clover_leaf_map.jpg"} alt={"hahah"} />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam
+        amet, dolorem eveniet sed qui, ipsum pariatur eius ab odit hic modi.
+        Quis, blanditiis. Quasi non et recusandae officiis ipsa! Dignissimos!
+      </p> */}
+
+      <Figure
+        img={{
+          src: "https://i.pinimg.com/1200x/f2/85/1a/f2851a5699b28f1f7352d1dafb4326a4.jpg",
+        }}
+        size={"large-size"}
+        caption={"Aliquam fermentum finibus facilisis."}
+      />
+
+      <p><strong>Lorem ipsum</strong>, dolor sit amet consectetur adipisicing elit. Eum nostrum ducimus est enim a, aspernatur natus consequatur doloremque dolorem maxime reprehenderit saepe modi perspiciatis vero tempore animi odit voluptate mollitia.</p>
 
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris congue
@@ -94,7 +109,7 @@ const LoremIpsum: Post = {
         eu vulputate sit amet, convallis ut nisi. Nullam sodales pulvinar odio.
         Aenean eu mi rutrum, lobortis neque scelerisque, commodo velit.
       </p>
-    </>
+    </>,
   ],
 };
 

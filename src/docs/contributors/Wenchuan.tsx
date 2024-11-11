@@ -1,13 +1,13 @@
-import { Post } from "../../components/ObjectShapes/PageShapes";
+import { Person } from "../../components/ObjectShapes/PageShapes";
 
-const Contributors_Wenchuan: Post = {
+const Contributors_Wenchuan: Person = {
   info: {
     title: "Wenchuan Lili Zhao",
     path: "Wenchuan Lili Zhao",
     summary: "",
     latest_update: [2024, 9, 28],
     cover: {
-      url: "",
+      url: "https://i.ytimg.com/vi/oypl2xVpPBI/maxresdefault.jpg",
       caption: undefined
     },
     authors: [],

@@ -1,0 +1,27 @@
+
+
+
+.figure {
+  margin: 32px 0;
+
+  .caption p {
+    
+    margin-top: 8px;
+    color: var(--color-sec);
+    font-size: 14px;
+    font-family: var(--ff-sans);
+  }
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: bold;
+  color: var(--color-em);
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+p {
+  margin-top: 1em;
+}

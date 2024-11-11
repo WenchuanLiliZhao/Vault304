@@ -1,13 +1,13 @@
-import { Post } from "../../components/ObjectShapes/PageShapes";
+import { Person } from "../../components/ObjectShapes/PageShapes";
 
-const Contributors_LuShu: Post = {
+const Contributors_LuShu: Person = {
   info: {
     title: "LU Shu",
     path: "",
     summary: "",
     latest_update: [2024, 9, 28],
     cover: {
-      url: "",
+      url: "https://brandonmarlow17.wordpress.com/wp-content/uploads/2015/09/apotheon-download-pc-e1422918067138.jpg?w=648",
       caption: undefined
     },
     authors: [],

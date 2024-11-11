@@ -7,6 +7,7 @@ import { Footer, Nav_Btn, Nav_Top, NavLink2Top } from "../Elements/Navigations";
 import { PageHeader_Channel } from "../Elements/PageHeaders";
 import { ContentMapping } from "./LayoutFunctions";
 
+export type PostElementSize = "" | "large-size"
 
 interface PropsChannel {
   channel: Channel;
