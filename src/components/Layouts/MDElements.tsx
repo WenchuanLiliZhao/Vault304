@@ -3,14 +3,6 @@ import { MDBlock } from "../Functions/Markdown"
 import { PostElementSize } from "./Layouts"
 import styles from "./MDElements.module.scss"
 
-// interface FigureProps {
-//   src: string
-//   ratio: [number, number]
-//   title: string
-//   caption: string
-//   size: "normal" | "big"
-// }
-
 interface FigureProps {
   img: ImgProps
   size: PostElementSize
