@@ -48,7 +48,7 @@ const LoremIpsum: Post = {
           src: "https://i.pinimg.com/1200x/f2/85/1a/f2851a5699b28f1f7352d1dafb4326a4.jpg",
         }}
         size={"large-size"}
-        caption={"Aliquam fermentum finibus facilisis."}
+        caption={"Aliquam fermentum finibus facilisis $x$."}
       />
 
       <p><strong>Lorem ipsum</strong>, dolor sit amet consectetur adipisicing elit. Eum nostrum ducimus est enim a, aspernatur natus consequatur doloremque dolorem maxime reprehenderit saepe modi perspiciatis vero tempore animi odit voluptate mollitia.</p>

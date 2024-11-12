@@ -13,7 +13,7 @@ interface PropsChannel {
   channel: Channel;
 }
 
-const Layout_Channel: React.FC<PropsChannel> = ({ channel }) => {
+export const Layout_Channel: React.FC<PropsChannel> = ({ channel }) => {
   return (
     <>
       <div className={`${styles.channelContent}`}>
@@ -35,7 +35,7 @@ interface PropsArticle {
   book: Book;
 }
 
-const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
+export const Layout_Article: React.FC<PropsArticle> = ({ book, page }) => {
   return (
     <>
       {book.loadToc && (
@@ -64,8 +64,11 @@ interface PropsBookCover {
   book: Book;
 }
 
-const Layout_BookCover: React.FC<PropsBookCover> = ({ book }) => {
+export const Layout_BookCover: React.FC<PropsBookCover> = ({ book }) => {
   return <>{book.cover.info.title}</>;
 };
 
-export { Layout_Channel, Layout_Article, Layout_BookCover };
+
+// const Deco
+
+

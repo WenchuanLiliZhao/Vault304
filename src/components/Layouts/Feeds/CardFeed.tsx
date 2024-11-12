@@ -1,10 +1,10 @@
-import styles from "./CardLists.module.scss";
+import styles from "./CardFeed.module.scss";
 import React, { useState } from "react";
 import { Author, Post } from "../../ObjectShapes/PageShapes";
 import { postFilter } from "../../Functions/PostSetHandling";
 import { DateFormatter } from "../../Functions/Date";
 import { MDBlock } from "../../Functions/Markdown";
-import { Calendar } from "../Minitools/Calendar";
+import { Calendar } from "../../Elements/Minitools/Calendar";
 import { SiteInfo } from "../../../SiteInfo";
 
 interface BookPageListProps {

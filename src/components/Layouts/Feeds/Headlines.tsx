@@ -1,27 +1,8 @@
-import styles from "./Cards.module.scss";
+import styles from "./Headlines.module.scss";
 import { Book, Post } from "../../ObjectShapes/PageShapes";
 import { postFilter } from "../../Functions/PostSetHandling";
 import { MDBlock } from "../../Functions/Markdown";
 
-interface PropsCard {
-  book: Book;
-}
-
-export const BookCard_Normal: React.FC<PropsCard> = ({ book }) => {
-  const tocArray = Object.values(book.pages);
-
-  // Declare firstChapter before the conditional block
-  let firstChapter;
-
-  // Assign firstChapter based on the presence of book.start_reading
-  if (book.start_reading !== undefined) {
-    firstChapter = book.start_reading;
-  } else {
-    firstChapter = tocArray[0];
-  }
-
-  return <>{firstChapter.info.title}</>;
-};
 
 interface PropsHeadline {
   book: Book;

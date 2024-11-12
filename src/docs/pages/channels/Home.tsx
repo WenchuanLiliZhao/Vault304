@@ -1,5 +1,5 @@
-import { BookCard_Headline } from "../../../components/Elements/Cards/Cards";
-import { PostCardList } from "../../../components/Elements/Cards/CardLists";
+import { BookCard_Headline } from "../../../components/Layouts/Feeds/Headlines";
+import { PostCardList } from "../../../components/Layouts/Feeds/CardFeed";
 import { Channel } from "../../../components/ObjectShapes/PageShapes";
 import { SiteInfo } from "../../../SiteInfo";
 import { BookPagesArray } from "../../books/_Books";

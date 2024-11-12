@@ -16,7 +16,7 @@ export const Figure: React.FC<FigureProps> = ({img, size, caption}) => {
       ${styles["figure"]}
       ${size}
     `}>
-      <Img src={img.src} alt={img.alt} ratio={img.ratio} />
+      <Img src={img.src} alt={`Image: ${caption}`} ratio={img.ratio} />
 
       <figcaption className={styles["caption"]}>
         <MDBlock>

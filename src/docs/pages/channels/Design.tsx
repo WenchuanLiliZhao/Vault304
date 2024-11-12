@@ -1,5 +1,5 @@
 // Home.tsx
-import { PostCardList } from "../../../components/Elements/Cards/CardLists";
+import { PostCardList } from "../../../components/Layouts/Feeds/CardFeed";
 import { filterPosts } from "../../../components/Functions/PostSetHandling";
 import { Channel } from "../../../components/ObjectShapes/PageShapes";
 import { Labels_Design } from "../../../components/ObjectShapes/Strings";
