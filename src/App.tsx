@@ -16,6 +16,7 @@ import {
   Post,
 } from "./components/ObjectShapes/PageShapes";
 import IndePages from "./docs/pages/independent/_Toc";
+import { ScrollToBottom } from "./playground/ScrollPage";
 
 function App() {
   return (
@@ -24,6 +25,13 @@ function App() {
         <Routes>
           {/* import index */}
           <Route index element={<Layout_Channel channel={Home} />} />
+
+          <Route path="/test" element={<>
+            <ScrollToBottom initialScrollPosition="bottom">
+              
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta minus rem quam voluptates veniam atque pariatur tenetur beatae magnam natus. Consequatur voluptatem quod accusamus libero, quos deleniti alias doloremque repellendus.</p>
+            </ScrollToBottom>
+          </>} />
 
           {/* the following pages are special, meaning the UI are indepently designed, so we don't invoke any layout here */}
           {Object.values(IndePages).map((item: AnyPage, i: number) => (
